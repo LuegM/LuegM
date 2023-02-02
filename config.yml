@@ -21,13 +21,13 @@ params:
         Welcome to my blog.
 
         - I am a software developer focusing on iOS app development.
-        
+
         - 
 
         - Here you can find my socials and contact details:
 
 socialIcons:
-      - name: mail
+      - name: email
         url: "mailto:me@luegm.dev"
       - name: github
         url: "http://github.com/luegm"
