@@ -23,7 +23,7 @@ params:
 
         Here you can find my socials and contact details:
 
-  socialIcons:
+socialIcons:
       - name: mail
         url: "mailto:me@luegm.dev"
       - name: github
@@ -35,7 +35,7 @@ params:
       - name: "rss"
         url: "https://luegm.dev/index.xml"
 
-  cover:
+cover:
     linkFullImages: true
 
   ShowBreadCrumbs: true
@@ -47,6 +47,11 @@ params:
   ShowCodeCopyButtons: true
   ShowToc: true
   ShowFullTextinRSS: true
+
+editPost:
+        URL: "https://github.com/LuegM/LuegM/tree/main/content"
+        Text: "Suggest Changes" # edit text
+        appendFilePath: true # to append file path to Edit link
 
 menu:
   main:
