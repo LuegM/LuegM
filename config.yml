@@ -1,4 +1,4 @@
-baseURL: ""
+baseURL: "https://luegm.dev"
 languageCode: en-us
 title: LuegM 👨🏻‍💻
 theme: ["hugo-notice", "PaperMod"]
