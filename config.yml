@@ -1,15 +1,31 @@
 baseURL: "https://luegm.dev"
 languageCode: en-us
 title: LuegM 👨🏻‍💻
+paginate: 5
 theme: ["hugo-notice", "PaperMod"]
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
 
 params:
   defaultTheme: auto
   DateFormat: "02.01.2006"
   homeInfoParams:
     Title: "Hi there, I'm Michael \U0001F44B"
-    Content: Welcome to my blog
+    Content: >
+        Welcome to my blog.
+        I am a software developer focusing on iOS app development.
+
+        Here you can find my socials and contact details:
+
   socialIcons:
+      - name: mail
+        url: "mailto:me@luegm.dev"
       - name: github
         url: "http://github.com/luegm"
       - name: twitter
@@ -47,7 +63,7 @@ menu:
       url: /archives/
       weight: 30
     - identifier: search
-      name: \U0001F50D
+      name: Search
       url: /search/
       weight: 40
 
