@@ -29,6 +29,8 @@ params:
   socialIcons:
       - name: email
         url: "mailto:me@luegm.dev"
+      - name: cv
+        url: "/cv.pdf"
       - name: github
         url: "http://github.com/luegm"
       - name: twitter
