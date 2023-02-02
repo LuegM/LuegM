@@ -44,10 +44,6 @@ cover:
   ShowToc: true
   ShowFullTextinRSS: true
 
-editPost:
-        URL: "https://github.com/LuegM/LuegM/tree/main/content"
-        Text: "Suggest Changes" # edit text
-        appendFilePath: true # to append file path to Edit link
 
 menu:
   main:
