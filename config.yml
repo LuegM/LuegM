@@ -18,10 +18,13 @@ params:
   homeInfoParams:
     Title: "Hi there, I'm Michael \U0001F44B"
     Content: >
-        Welcome to my blog.\
-        I am a software developer focusing on iOS app development.\
-        \
-        Here you can find my socials and contact details:
+        Welcome to my blog.
+
+        - I am a software developer focusing on iOS app development.
+        
+        - 
+
+        - Here you can find my socials and contact details:
 
 socialIcons:
       - name: mail
