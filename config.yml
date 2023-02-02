@@ -16,6 +16,8 @@ params:
         url: "https://twitter.com/lueg_m"
       - name: linkedin
         url: "https://www.linkedin.com/in/luegm/"
+      - name: "rss"
+        url: "https://luegm.dev/index.xml"
 
   cover:
     linkFullImages: true
@@ -28,6 +30,7 @@ params:
 
   ShowCodeCopyButtons: true
   ShowToc: true
+  ShowFullTextinRSS: true
 
 menu:
   main:
