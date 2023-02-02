@@ -72,7 +72,7 @@ struct ContentView: App {
       VStack {
 				Text("Hello world")
 			}
-        .onOpenURL { url **in**
+        .onOpenURL { url in
 			// handle universal links
 			print("url: \(url)")
 		}
