@@ -17,9 +17,16 @@ params:
   DateFormat: "02.01.2006"
   homeInfoParams:
     Title: "Hi there, I'm Michael \U0001F44B"
-    Content: Test
+    Content: >
+        Welcome to my blog. 
+    
+        - I am a software developer focusing on iOS app development. 
+    
+        - 
+    
+        - Here you can find my socials and contact details:
 
-socialIcons:
+  socialIcons:
       - name: email
         url: "mailto:me@luegm.dev"
       - name: github
@@ -31,7 +38,12 @@ socialIcons:
       - name: "rss"
         url: "https://luegm.dev/index.xml"
 
-cover:
+  editPost:
+        URL: "https://github.com/LuegM/LuegM/tree/main/content"
+        Text: "Suggest Changes" # edit text
+        appendFilePath: true # to append file path to Edit link
+
+  cover:
     linkFullImages: true
 
   ShowBreadCrumbs: true
