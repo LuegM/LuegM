@@ -1,0 +1,55 @@
+baseURL: ""
+languageCode: en-us
+title: LuegM 👨🏻‍💻
+theme: ["hugo-notice", "PaperMod"]
+
+params:
+  defaultTheme: auto
+  DateFormat: "02.01.2006"
+  homeInfoParams:
+    Title: "Hi there, I'm Michael \U0001F44B"
+    Content: Welcome to my blog
+  socialIcons:
+      - name: github
+        url: "http://github.com/luegm"
+      - name: twitter
+        url: "https://twitter.com/lueg_m"
+      - name: linkedin
+        url: "https://www.linkedin.com/in/luegm/"
+
+  cover:
+    linkFullImages: true
+
+  ShowBreadCrumbs: true
+  ShowReadingTime: true
+
+  ShowPostNavLinks: true
+  ShowShareButtons: true
+
+  ShowCodeCopyButtons: true
+  ShowToc: true
+
+menu:
+  main:
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 30
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 40
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
