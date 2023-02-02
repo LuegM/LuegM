@@ -47,7 +47,7 @@ menu:
       url: /archives/
       weight: 30
     - identifier: search
-      name: Search
+      name: \U0001F50D
       url: /search/
       weight: 40
 
