@@ -23,8 +23,11 @@ categories: ["Swift", "SwiftUI"]
 
 You will then be prompted with a dialog box. 
 
-Be sure to check your project name under “Add to targets.” 
+{{< notice warning >}}
+Be sure to check your project name under “Add to targets.” \
 This will ensure that your fonts are compiled as assets at build time.
+{{< /notice >}}
+
 ![](/FA/screenshot_fa_addToTarget.png)
 
 ----
@@ -61,10 +64,16 @@ Font Awesome 6 Pro-Thin-100.otf
 Font Awesome 6 Sharp-Solid-900.otf
 ```
 
-→ might not be named like these → check real filenames
+{{< notice note >}}
+The fonts might not be named like these anymore.\
+Check real filenames!
+{{< /notice >}}
+
 
 ### 4. create a new struct for **CustomFonts**
 
+1. create a new Swift File *(name: "CustomFonts)*
+2. add this code
 ```swift
 struct CustomFonts {
     static let FAPro = "FontAwesome6Pro-Regular"

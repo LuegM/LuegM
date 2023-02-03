@@ -18,9 +18,9 @@ params:
   homeInfoParams:
     Title: "Hi there, I'm Michael \U0001F44B"
     Content: >
-        Welcome to my blog. 
+        Welcome to my blog!
     
-        - I am a software developer focusing on iOS app development. 
+        - I am a software developer focusing on  app development . 
     
         - 
     
@@ -39,11 +39,6 @@ params:
         url: "https://www.linkedin.com/in/luegm/"
       - name: "rss"
         url: "https://luegm.dev/index.xml"
-
-  editPost:
-        URL: "https://github.com/LuegM/LuegM/tree/main/content"
-        Text: "Suggest Changes" # edit text
-        appendFilePath: true # to append file path to Edit link
 
   cover:
     linkFullImages: true
@@ -65,18 +60,22 @@ menu:
       name: Categories
       url: /categories/
       weight: 10
-    - identifier: tags
-      name: Tags
-      url: /tags/
+    - identifier: myapps
+      name: My Apps
+      url: /myapps/
       weight: 20
+    - identifier: me
+      name: Me
+      url: /me/
+      weight: 30
     - identifier: archives
       name: Archives
       url: /archives/
-      weight: 30
+      weight: 40
     - identifier: search
       name: Search
       url: /search/
-      weight: 40
+      weight: 50
 
 outputs:
     home:
