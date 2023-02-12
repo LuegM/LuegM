@@ -19,7 +19,7 @@ To wrap things up, I'll also include a style preview to give you an idea of the 
 Whether you're a beginner or an experienced iOS developer, this post will guide you through the process of adding Font Awesome icons to your Xcode project with ease.
 
 ---
-## How to
+## How to add...
 
 ### 1.  download the font files
 [Download Font Awesome](https://fontawesome.com/download)
@@ -27,8 +27,6 @@ Whether you're a beginner or an experienced iOS developer, this post will guide 
 → use the „**For The Desktop**“ Version
 
 ![](/FA/screenshot_fa_download.png)
-
-----
 
 ### 2. add *.otf* files to the project
 
@@ -42,8 +40,6 @@ This will ensure that your fonts are compiled as assets at build time.
 {{< /notice >}}
 
 ![](/FA/screenshot_fa_addToTarget.png)
-
-----
 
 ### 3. add the fonts to „Info.plist“ file
 
@@ -101,7 +97,7 @@ struct CustomFonts {
 
 ----
 
-## How to use…
+## How to use...
 
 ### 1. go to Font Awesome and search for an icon
 
@@ -110,8 +106,6 @@ struct CustomFonts {
 ### 2. click Copy Glyph
 
 ![](/FA/screenshot_fa_glyph.png)
-
-----
 
 ### 3. add the icon as text
 
