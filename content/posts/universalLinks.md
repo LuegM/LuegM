@@ -5,14 +5,33 @@ draft: false
 tags: ["Universal Links", "SwiftUI", "Apple", "iOS", "iPadOS", "Xcode"]
 categories: ["Swift", "SwiftUI"]
 ---
+## Introduction
+Welcome to my blog post on **Universal Links in SwiftUI**!
 
-## 1. get Team-ID and Bundle-ID
-### Team ID:
+Universal links are a powerful feature that allows you to link directly to your app from an external source, such as a website. This means that you can take your users directly to specific content within your app, without having to go through the app store or the website. In this post, I will walk you through the process of setting up Universal Links in a SwiftUI app.
+
+First, we will look at how to find your Team ID and Bundle ID. You'll need these values to configure the association file and the app entitlements.
+
+Next, we'll create the association file and upload it to your website. This file contains information about the links that should be associated with your app, and it is a key part of the setup process.
+
+We'll then add the Associated Domains capability to your app, and add the appropriate domain entries to your entitlements. This is an important step that allows your app to receive the universal links and handle them appropriately.
+
+In the code logic section, I'll show you how to add code to your SwiftUI app that will handle the universal links when they are received. This is done using the `onOpenURL` method, which is called whenever your app is opened using a universal link.
+
+Finally, I'll show you how to enable the Universal Links testing-feature on an iPhone and how to verify that the links are set up correctly.
+
+By the end of this post, you will have a complete understanding of how Universal Links work in SwiftUI and will be able to set them up in your own apps. Let's get started!
+
+---
+## How to
+
+### 1. get Team-ID and Bundle-ID
+#### Team ID:
 1. go to https://developer.apple.com/account
 2. scroll to **Membership details** and find the **Team ID**
 ![Team-ID](/universalLinks/screenshot_apple_team-id.png)
 
-### Bundle ID:
+#### Bundle ID:
 1. open the Xcode project
 	1. click on the project name (left panel)
 	2. click **Signing & Capabilities**
@@ -21,7 +40,7 @@ categories: ["Swift", "SwiftUI"]
 
 <div style="page-break-after: always;"></div>
 
-## 2. create the association file
+### 2. create the association file
 1. create a file with the name: ```apple-app-site-association```  (**without extension!**)
 2. this is an example of the file. 
    also check: [supporting associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains)
@@ -42,13 +61,13 @@ categories: ["Swift", "SwiftUI"]
 }
 ```
 
-## 3. upload it
+### 3. upload it
 * upload this file to:
 ```https://<fully qualified domain>/.well-known/apple-app-site-association```
 
 <div style="page-break-after: always;"></div>
 
-## 4. add entitlement to your app
+### 4. add entitlement to your app
 1. add the capability **Associated Domains**
 ![](/universalLinks/screenshot_xcode_capability.png)
 ![](/universalLinks/screenshot_xcode_ad.png)
@@ -61,7 +80,7 @@ categories: ["Swift", "SwiftUI"]
 
 <div style="page-break-after: always;"></div>
 
-## 5. add code-logic to the app
+### 5. add code-logic to the app
 This allows to register a handler that will be called whenever your application is opened using a universal link, regardless of its state (foreground, background, force-quit).
 
 ```swift
@@ -83,7 +102,7 @@ struct ContentView: App {
 
 <div style="page-break-after: always;"></div>
 
-## 6. enable on iPhone
+### 6. enable on iPhone
 1. go to **Settings**
 
 {{< rawhtml >}}
@@ -104,7 +123,7 @@ struct ContentView: App {
 
 4. **reboot** your phone
 
-## 7. install App
+### 7. install App
 {{< notice info >}}
 If the app is already on your phone:
 1. delete the app
@@ -113,7 +132,7 @@ If the app is already on your phone:
 
 <div style="page-break-after: always;"></div>
 
-## 8. check the association
+### 8. check the association
 1. go to **Settings**
 
 {{< rawhtml >}}
@@ -146,7 +165,7 @@ If the app is already on your phone:
 <img src="/universalLinks/screenshot_iOS_ul_check.png" width="300">
 {{< /rawhtml >}}
 
-## 9. test
+### 9. test
 1. if you try to open an URL in Safari (like specified above)\
    e.g. ```https://<fully qualified domain>/app/something```
    a banner should appear:
@@ -157,7 +176,7 @@ If the app is already on your phone:
 
 2. if you save the URL somewhere (e.g. the notes app) and tap it afterwards, the app should open.
 
-## 10. troubleshooting
+### 10. troubleshooting
 1. start the **Console** app on your Mac
 
 {{< rawhtml >}}
