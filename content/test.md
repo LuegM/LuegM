@@ -1,8 +1,12 @@
 ---
-title: "toggle between local and iCloud CoreData store"
+title: "toggle between local and iCloud CoreData store" # in any language you want
 layout: "single" # is necessary
 url: "/turnOnOffCloud/"
-date: 2023-02-12T15:18:20+01:00
-draft: false
+summary: "turnOnOffClouds"
+ShowBreadCrumbs: false
+ShowToc: false
+ShowReadingTime: false
+ShowPostNavLinks: false
+ShowShareButtons: false
 ---
 # test
