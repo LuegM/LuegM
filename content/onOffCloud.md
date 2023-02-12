@@ -174,3 +174,36 @@ final class PersistentContainer {
     }
 }
 ```
+
+
+---
+Then I want to present it here.
+I think my only problem right now is, that the FetchRequest is not done after the update.
+And so the list is not refreshed correct.
+
+`LogListView.swift`
+```swift
+struct LogListView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.Nr, order: .forward)])
+    var logs: FetchedResults<Log>
+
+    
+    var body: some View {
+        NavigationStack {
+            List{
+                if logs.count == 0 {
+                    Text("no Logs found")
+                }
+                ForEach(logs){log in
+                    NavigationLink(destination: LogDetailView(diveNo: 1, Site: "someSite")) {
+                        LogListObject(log: log)
+                    }
+                }
+                .onDelete(perform: deleteLog)
+            }
+        }
+    }
+}
+```
