@@ -5,8 +5,21 @@ draft: false
 tags: ["Font Awesome", "Icon", "Apple", "iOS", "iPadOS", "Xcode"]
 categories: ["Swift", "SwiftUI"]
 ---
+## Introduction
+Welcome to my blog post on **Font Awesome 6 in Xcode & SwiftUI**. 
 
-## How to install…
+In this post, I'll be sharing with you the steps on how to install Font Awesome icons in your Xcode project using SwiftUI. 
+
+We'll start by downloading the font files, adding the .otf files to the project, adding the fonts to the Info.plist file and creating a new struct for CustomFonts. 
+
+Then, I'll show you how to use Font Awesome icons in your Xcode project. 
+I'll take you through the process of searching for an icon on Font Awesome, copying the glyph, and adding the icon as text. 
+
+To wrap things up, I'll also include a style preview to give you an idea of the various font styles available. 
+Whether you're a beginner or an experienced iOS developer, this post will guide you through the process of adding Font Awesome icons to your Xcode project with ease.
+
+---
+## How to
 
 ### 1.  download the font files
 [Download Font Awesome](https://fontawesome.com/download)
