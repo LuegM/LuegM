@@ -47,8 +47,12 @@ struct iCloudSyncView: View {
                         UserDefaults.standard.set(value, forKey: "iCloud")
                         PersistenceController.shared.updateContainer()
                     }
+                    .onAppear {
+                        self.cloudEnabled = UserDefaults.standard.bool(forKey: "iCloud")
+                    }
                 }
             }
+        }
     }
 }
 ````
@@ -107,7 +111,17 @@ class PersistenceController {
     }
     
     func fetchAllItems() {
-        // how to ?
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Log")
+            
+            do {
+                let result = try container.viewContext.fetch(request)
+                if let data = result as? [NSManagedObject] {
+                    print("Data: \(data)")
+                }
+            } catch {
+                let error = error as NSError
+                print("ERROR: \(error)")
+            }
     }
     
     private func saveContext() {
