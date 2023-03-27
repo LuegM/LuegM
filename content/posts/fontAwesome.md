@@ -94,7 +94,8 @@ struct CustomFonts {
     static let FAProSolid = "FontAwesome6Pro-Solid"
     static let FAProThin = "FontAwesome6Pro-Thin"
     static let FADuotone = "FontAwesome6Duotone-Solid"
-    static let FASharp = "FontAwesome6Sharp-Solid"
+    static let FASharp = "FontAwesome6Sharp-Regular"
+    static let FASharpSolid = "FontAwesome6Sharp-Solid"
     static let FABrands = "FontAwesome6Brands-Regular"
 }
 ```
