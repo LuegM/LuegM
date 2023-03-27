@@ -71,7 +71,7 @@ Font Awesome 6 Pro-Thin-100.otf
 
 ```plaintext
 Font Awesome 6 Sharp-Regular-400.otf
-
+```
 
 ```plaintext
 Font Awesome 6 Sharp-Solid-900.otf
