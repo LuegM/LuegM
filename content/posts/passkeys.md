@@ -27,31 +27,31 @@ https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/
 #### automated / script (macOS and Linux):
 1. Clone the repository
    ```bash
-git clone https://github.com/YubicoLabs/passkey-workshop
+    git clone https://github.com/YubicoLabs/passkey-workshop
    ```
 2. Navigate to the *deploy* folder
    ```bash
-cd passkey-workshop/deploy
-```
+    cd passkey-workshop/deploy
+    ```
 3. run the *mobile.sh* script
    ```bash
-./mobile.sh
-```
+    ./mobile.sh
+    ```
 4. edit *.env* file
 	1. open the file
 	   ```bash
-vi .env
-or
-nano .env
-```
+        vi .env
+        or
+        nano .env
+        ```
 	2. make changes
 	   ![[CleanShot 2023-05-12 at 15.37.14@2x.png]]
 		1. if you have a Team-ID -> add it here
 		2. if you don't have a Team-ID -> change one character
 5. run the *mobile.sh* script again
    ```bash
-./mobile.sh
-``` 
+    ./mobile.sh
+    ``` 
 6. copy the url from the shell
    ![[CleanShot 2023-05-12 at 15.47.18@2x.png]]
 7. open the url in a browser
