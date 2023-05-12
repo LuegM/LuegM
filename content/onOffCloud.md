@@ -10,6 +10,8 @@ ShowPostNavLinks: false
 ShowShareButtons: false
 ---
 
+I want to enable/disable Core Data iCloud sync. 
+
 `MyApp.swift`
 ```swift
 import SwiftUI
@@ -178,8 +180,6 @@ final class PersistentContainer {
 
 ---
 Then I want to present it here.
-I think my only problem right now is, that the FetchRequest is not done after the update.
-And so the list is not refreshed correct.
 
 `LogListView.swift`
 ```swift
