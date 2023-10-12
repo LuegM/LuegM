@@ -56,7 +56,7 @@ Michael Luegmayer
 {{< /rawhtml >}}
 
 **some facts:**
-* 26 years old 
+* 27 years old 
 * from Austria 🇦🇹
 * currently studying Mobile Computing (BSc) \
 *@[University of Applied Sciences Upper Austria, Campus Hagenberg](https://www.fh-ooe.at/en/hagenberg-campus/studiengaenge/bachelor/mobile-computing/)*
