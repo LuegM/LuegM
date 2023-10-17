@@ -20,9 +20,9 @@ This page is currently under construction.
 MantaLog represents my journey into iOS app development, intertwining my passion for diving with my enthusiasm for tech. It's more than just a dive log; it's an experience tailored for the modern diver.
 
 ##### Technical Highlights:
-**Platform & Tools:** Developed for iOS using Swift and SwiftUI. /n
-**Data Management:** Leveraged CoreData and SwiftData for efficient data storage and retrieval. /n
-**Synchronization:** Integrated iCloud Sync, ensuring seamless data synchronization across all iOS devices. /n
+**Platform & Tools:** Developed for iOS using Swift and SwiftUI. {{< line_break >}}
+**Data Management:** Leveraged CoreData and SwiftData for efficient data storage and retrieval. {{< line_break >}}
+**Synchronization:** Integrated iCloud Sync, ensuring seamless data synchronization across all iOS devices. {{< line_break >}}
 
 ##### Key Features:
 **Bluetooth LE Integration**: Effortless syncing with dive computers for accurate logging.<br>
