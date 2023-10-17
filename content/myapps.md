@@ -17,7 +17,7 @@ This page is currently under construction.
 ## MantaLog
 
 ### Project Overview:
-MantaLog represents my journey into *iOS app development*, intertwining my passion for diving with my enthusiasm for tech. It's more than just a dive log - it's *an experience tailored for the modern diver*.
+MantaLog represents my journey into iOS app development, intertwining my passion for diving with my enthusiasm for tech. It's more than just a dive log - it's an experience tailored for the modern diver.
 
 #### Technical Highlights:
 **Platform & Tools:** Developed for iOS using Swift and SwiftUI. {{< line_break >}}
