@@ -14,6 +14,6 @@ ShowShareButtons: false
 This page is currently under construction.
 {{< /notice >}}
 
-### VINOTES
+### MantaLog
 
-### DiveApp
+### VINOTES
