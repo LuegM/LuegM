@@ -1,0 +1,153 @@
+{
+  "main": {
+    "id": "46b7b3d0279a0848",
+    "type": "split",
+    "children": [
+      {
+        "id": "37cbff6eaee095b6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ae292d913f1f9a7d",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c45c104247a318b0",
+    "type": "split",
+    "children": [
+      {
+        "id": "ac7fe2bc664815ac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6ee81220213297c3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "dcb62311ad1f39bf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b028e31de2d598ca",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "79d68cea5a13939d",
+    "type": "split",
+    "children": [
+      {
+        "id": "6239f94769465932",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7a5972b498483662",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "content/posts/fontAwesome.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7adba9a01e8201c5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "content/posts/fontAwesome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4e2136f1a4f2e1aa",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "8b3dfcaafbba8962",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "content/posts/fontAwesome.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "6ee81220213297c3",
+  "lastOpenFiles": [
+    "static/MantaLog/logos/padi.png",
+    "content/myapps.md",
+    "content/me.md",
+    "content/onOffCloud.md",
+    "content/search.md"
+  ]
+}
