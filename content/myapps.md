@@ -17,7 +17,7 @@ This page is currently under construction.
 ## MantaLog
 
 ### Project Overview:
-MantaLog represents my journey into iOS app development, intertwining my passion for diving with my enthusiasm for tech. It's more than just a dive log - it's an experience tailored for the modern diver.
+MantaLog represents my journey into **iOS app development**, intertwining my passion for diving with my enthusiasm for tech. It's more than just a dive log - it's **an experience tailored for the modern diver**.
 
 #### Technical Highlights:
 **Platform & Tools:** Developed for iOS using Swift and SwiftUI. {{< line_break >}}
@@ -30,6 +30,6 @@ MantaLog represents my journey into iOS app development, intertwining my passion
 **Dive Insights & Stats**: {{< line_break >}}Dive patterns, depths, and location statistics for a comprehensive dive review.{{< line_break >}}
 **License Storage**: {{< line_break >}}A digital wallet for divers to store and showcase their diving credentials.{{< line_break >}}
 
-> Creating MantaLog has been an enriching experience, bringing together the thrill of diving with the precision of app development.
+> Creating MantaLog an ongoing enriching experience, bringing together the thrill of diving with the precision of app development.
 
 ## VINOTES
