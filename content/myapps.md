@@ -10,10 +10,6 @@ ShowPostNavLinks: false
 ShowShareButtons: false
 ---
 
-{{< notice info >}}
-This page is currently under construction.
-{{< /notice >}}
-
 ## MantaLog
 
 ### Project Overview:
@@ -35,3 +31,5 @@ MantaLog represents my journey into _iOS app development_, intertwining my passi
 ![](/MantaLog.png)
 
 ## VINOTES
+
+![](/MantaLog.png)
