@@ -32,4 +32,6 @@ MantaLog represents my journey into _iOS app development_, intertwining my passi
 
 > Creating MantaLog is an ongoing enriching experience, merging the thrill of diving with my deep passion for app development.
 
+![](/MantaLog.png)
+
 ## VINOTES
