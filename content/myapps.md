@@ -32,4 +32,4 @@ MantaLog represents my journey into _iOS app development_, intertwining my passi
 
 ## VINOTES
 
-![](/MantaLog.png)
+![](/VINOTES.png)
