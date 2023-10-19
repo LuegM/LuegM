@@ -30,6 +30,8 @@ MantaLog represents my journey into _iOS app development_, intertwining my passi
 
 ![](/MantaLog.png)
 
+---
+
 ## VINOTES
 
 ### Project Overview:
