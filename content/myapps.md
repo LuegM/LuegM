@@ -49,7 +49,7 @@ Vinotes encapsulates the essence of wine tasting in a digitized form, born from 
 **Favorites**: Keep your cherished wines and wineries in one place by adding them to your favorites.{{< line_break >}}
 **Shop & Reorder**: With an integrated cart system, ordering wines is just a tap away. Can’t remember how you felt about a particular wine? Simply revisit your notes and reorder with confidence.
 
-> it's a journey into the world of wines, making every sip and note count. As creators, we took pride in bridging the gap between traditional wine tasting and the digital realm.
+> It's a journey into the world of wines, making every sip and note count. As creators, we took pride in bridging the gap between traditional wine tasting and the digital realm.
 
 ![](/VINOTES.png)
 
