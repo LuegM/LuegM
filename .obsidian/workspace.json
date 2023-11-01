@@ -11,8 +11,12 @@
             "id": "ae292d913f1f9a7d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "content/myapps.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/posts/fontAwesome.md",
+                "file": "content/myapps.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/posts/fontAwesome.md",
+                "file": "content/myapps.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -121,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/posts/fontAwesome.md"
+                "file": "content/myapps.md"
               }
             }
           }
@@ -142,7 +146,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6ee81220213297c3",
+  "active": "ae292d913f1f9a7d",
   "lastOpenFiles": [
     "static/MantaLog/logos/padi.png",
     "content/myapps.md",
