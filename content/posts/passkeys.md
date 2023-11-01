@@ -6,6 +6,13 @@ tags: ["Passkeys", "Security", "Passwords", "Swift", "Swift", "Apple", "Google",
 categories: ["Security"]
 ---
 
+Welcome to this comprehensive step-by-step tutorial designed to guide you through the process of setting up a backend environment for a passkeys using Docker Desktop.
+It will also guide you through the process of obtaining an Apple Developer Team-ID, a unique identifier required to manage your team on Apple's Developer platform.
+
+By the end of this tutorial, you'll have a fully functional backend setup for your passkey workshop, and you'll be capable of managing and running your applications more effectively.
+
+Happy learning!
+
 ### 1. install Docker Desktop
 https://www.docker.com/products/docker-desktop/
 
