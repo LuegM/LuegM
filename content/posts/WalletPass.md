@@ -13,8 +13,9 @@ We’re going to turn the Klimaticket, a yearly public transport ticket in Austr
 By the time you finish this guide, you'll learn how to create digital passes for your wallet on your iPhone.
 ## Preparations
 
-> [!info] 
->  Github-Link: [WalletPass](https://github.com/LuegM/WalletPass/tree/main)
+{{< notice info >}}
+Github-Link: [WalletPass](https://github.com/LuegM/WalletPass/tree/main)
+{{< /notice >}}
 
 1. Create the server folder and initialize it
 ```bash
@@ -269,8 +270,9 @@ Use this as the request body:
 
 ### Add an Image and use an Aztec Code
 
-> [!info] 
-> You can find the complete code here: [Github: index.js](https://github.com/LuegM/WalletPass/blob/main/Server/index.js)
+{{< notice info >}}
+You can find the complete code here: [Github: index.js](https://github.com/LuegM/WalletPass/blob/main/Server/index.js)
+{{< /notice >}}
 
 Change this part of the code to include `aztecCode` and `image`
 ```js
