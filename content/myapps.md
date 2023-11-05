@@ -32,6 +32,27 @@ MantaLog represents my journey into _iOS app development_, intertwining my passi
 
 ---
 
+## My Ticket Wallet App - KlimaWallet
+
+### What I Made:
+I wanted to add my KlimaTicket, a year-long pass for Austria's public transport, to my iPhone's Apple Wallet for convenience. Since no solution existed, I developed my own app that converts the physical KlimaTicket into a digital Wallet Pass.
+
+### How I Made It:
+**Tools I Used:** I used Node.js to make the backend. For the app part that you see on the iPhone, I used Swift and SwiftUI. {{< line_break >}}
+**How It Works with Data:** When you use the app, it lets you scan the Aztec code on your physical KlimaTicket using a feature called CodeScanner. After scanning, you can add more infos like your name and the expiry date. Then the app creates a .pkpass file — that's a special kind of file for Apple Wallet. You can see a preview of this pass right in the app, and with just a tap, you can add it to your Apple Wallet.  {{< line_break >}}
+
+### What the App Does:
+**Turns Your Ticket Digital**: You can change your paper KlimaTicket into a digital one that goes right into your Apple Wallet.{{< line_break >}}
+**Quick to Get**: You get your digital ticket fast and put it into your Apple Wallet in no time.{{< line_break >}}
+
+> Making this app was all about making something really useful and getting better at building apps and backends. It's cool to see how a little idea to fix a problem for myself can turn into something big that others might use too.
+
+For more infos look at my blog post... [Wallet Pass - Klimaticket](https://luegm.dev/posts/WalletPass)
+
+![](/WalletPass/Screens.png)
+
+---
+
 ## VINOTES
 
 ### Project Overview:
