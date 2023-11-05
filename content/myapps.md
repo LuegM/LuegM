@@ -4,7 +4,7 @@ layout: "single" # is necessary
 url: "/myapps/"
 summary: "my apps"
 ShowBreadCrumbs: false
-ShowToc: false
+ShowToc: true
 ShowReadingTime: false
 ShowPostNavLinks: false
 ShowShareButtons: false
