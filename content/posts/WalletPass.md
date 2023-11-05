@@ -34,6 +34,7 @@ npm i passkit-generator
 ```
 
 4. install openssl
+
 _Mac ([Homebrew](https://brew.sh))_
 ```zsh
 brew install openssl
@@ -120,7 +121,9 @@ Put the Model-Pass in the server folder like this:
 In my case:
 `/server/transit.pass/`
 
-**Please keep in mind that even if you are using the example model folder from the repository, you need to edit `pass.json` to replace `passTypeIdentifier` and `teamIdentifier` with your own values matching those from your signing certificate. If you don’t do this then you won’t be able to sign the passes properly.**
+{{< notice warning >}}
+Please keep in mind that even if you are using the example model folder from the repository, you need to edit `pass.json` to replace `passTypeIdentifier` and `teamIdentifier` with your own values matching those from your signing certificate. If you don’t do this then you won’t be able to sign the passes properly.
+{{< /notice >}}
 
 ## Setup the Server
 
