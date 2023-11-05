@@ -254,7 +254,7 @@ fastify.listen({ port: process.env.PORT ?? 3000, host: '0.0.0.0' }, function (er
 });
 ```
 
-Let’s test it from the `./server` folder, run `node index.js`. 
+Let’s test it: from the `./server` folder, run `node index.js`. 
 You should get a confirmation that your server is running at http://localhost:3000. 
 
 The next step involves using Postman, `curl`, or any other tool that will let you make a POST request to http://localhost:3000. 
@@ -262,14 +262,16 @@ The next step involves using Postman, `curl`, or any other tool that will let y
 Use this as the request body:
 ```
 { 
-	"name": "John Smith" 
-	"cardNr": "1234",
+    "name": "John Smith" 
+    "cardNr": "1234",
     "dateFrom": "01.01.2020",
     "dateTo": "12.12.2025",
     "dateBirth": "01.01.1999",
     "type": "Classic"
 }
 ```
+
+If all is done right, you should receive back a binary file that you can save under a name with a .pkpass extension, which will allow you to preview the pass with Pass Viewer built-in into MacOS.
 
 ### Add an Image and use an Aztec Code
 
@@ -684,3 +686,5 @@ struct AddPassView: UIViewControllerRepresentable {
     }
 }
 ```
+
+![](/WalletPass/Screens.png)
