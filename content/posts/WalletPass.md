@@ -11,6 +11,9 @@ Welcome to my step-by-step guide on how to build your own digital ticket for the
 We’re going to turn the Klimaticket, a yearly public transport ticket in Austria, into a ticket on your phone. This will make your travels simpler and help the planet too.
 
 By the time you finish this guide, you'll learn how to create digital passes for your wallet on your iPhone.
+
+![](/WalletPass/Screens.png)
+
 ## Preparations
 
 {{< notice info >}}
@@ -686,5 +689,3 @@ struct AddPassView: UIViewControllerRepresentable {
     }
 }
 ```
-
-![](/WalletPass/Screens.png)
