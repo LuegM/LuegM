@@ -181,17 +181,6 @@ const pass = await PKPass.from(
   },
 );
 
-// MARK: add Infos to the pass
-// Barcode Type
-const barcode = {
-  format: "PKBarcodeFormatQR",
-  message: cardNr,
-  messageEncoding: "iso-8859-1"
-};
-
-// Barcode Data
-pass.setBarcodes(barcode);
-
 // Expiration Format
 const [day, month, year] = dateTo.split('.');
 const date = new Date(`${year}-${month}-${day}T23:59:00+01:00`);
