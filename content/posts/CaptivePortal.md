@@ -84,7 +84,7 @@ std::vector<const char *> wm_menu  = {"wifi", "exit"};
 wifiManager.setMenu(wm_menu);
 ```
 
-'Erase saved wifi credentials'
+`Erase saved wifi credentials`
 ```c++
 // Erasing the WiFi settings
 Serial.println("Resetting");
