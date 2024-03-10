@@ -46,35 +46,20 @@ This will ensure that your fonts are compiled as assets at build time.
 ![](/FA/screenshot_fa_infoPlist.png)
 
 ```plaintext
-Font Awesome 6 Brands-Regular-400.otf
-```
-
-```plaintext
-Font Awesome 6 Duotone-Solid-900.otf
-```
-
-```plaintext
-Font Awesome 6 Pro-Light-300.otf
-```
-
-```plaintext
-Font Awesome 6 Pro-Regular-400.otf
-```
-
-```plaintext
-Font Awesome 6 Pro-Solid-900.otf
-```
-
-```plaintext
-Font Awesome 6 Pro-Thin-100.otf
-```
-
-```plaintext
-Font Awesome 6 Sharp-Regular-400.otf
-```
-
-```plaintext
-Font Awesome 6 Sharp-Solid-900.otf
+<key>UIAppFonts</key>
+	<array>
+		<string>Font Awesome 6 Brands-Regular-400.otf</string>
+		<string>Font Awesome 6 Duotone-Solid-900.otf</string>
+		<string>Font Awesome 6 Pro-Light-300.otf</string>
+		<string>Font Awesome 6 Pro-Regular-400.otf</string>
+		<string>Font Awesome 6 Pro-Solid-900.otf</string>
+		<string>Font Awesome 6 Pro-Thin-100.otf</string>
+		<string>Font Awesome 6 Sharp-Light-300.otf</string>
+		<string>Font Awesome 6 Sharp-Regular-400.otf</string>
+		<string>Font Awesome 6 Sharp-Solid-900.otf</string>
+		<string>Font Awesome 6 Sharp-Thin-100.otf</string>
+	</array>
+</dict>
 ```
 
 {{< notice note >}}
@@ -88,16 +73,48 @@ Check real filenames!
 1. create a new Swift File *(name: "CustomFonts)*
 2. add this code
 ```swift
-struct CustomFonts {
-    static let FAPro = "FontAwesome6Pro-Regular"
-    static let FAProLight = "FontAwesome6Pro-Light"
-    static let FAProSolid = "FontAwesome6Pro-Solid"
-    static let FAProThin = "FontAwesome6Pro-Thin"
-    static let FADuotone = "FontAwesome6Duotone-Solid"
-    static let FASharp = "FontAwesome6Sharp-Regular"
-    static let FASharpSolid = "FontAwesome6Sharp-Solid"
-    static let FABrands = "FontAwesome6Brands-Regular"
+extension View {
+    func faPro(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Pro-Regular", size: size))
+    }
+
+    func faProLight(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Pro-Light", size: size))
+    }
+
+    func faProSolid(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Pro-Solid", size: size))
+    }
+
+    func faProThin(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Pro-Thin", size: size))
+    }
+
+    func faDuotone(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Duotone-Solid", size: size))
+    }
+
+    func faSharp(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Sharp-Regular", size: size))
+    }
+
+    func faSharpLight(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Sharp-Light", size: size))
+    }
+
+    func faSharpSolid(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Sharp-Solid", size: size))
+    }
+
+    func faBrands(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Brands-Regular", size: size))
+    }
+
+    func faSharpThin(size: CGFloat) -> some View {
+        self.font(.custom("FontAwesome6Sharp-Thin", size: size))
+    }
 }
+
 ```
 
 ----
@@ -116,16 +133,13 @@ struct CustomFonts {
 
 ```swift
 Text("<icon>")
-	.font(.custom(CustomFonts.<FontName>, size: <size>))
-```
-
-e.g.
-```swift
-Text("<icon>")
-	.font(.custom(CustomFonts.FADuotone, size: 20))
+	.faProSolid(size: 20)
 
 Text("<icon>")
-	.font(.custom(CustomFonts.FAProThin, size: 20))
+	.faProSolid(size: 20)
+
+Text("<icon>")
+	.faSharpThin(size: 20)
 ```
 
 ----
