@@ -71,15 +71,20 @@ This code automatically attempts to connect the ESP32 to a previously connected 
 
 In addition to the basic setup, the WiFiManager library provides several options to customize the behavior of the captive portal and WiFi connection process to suit your project needs. Here are some of the configurable options:
 
+`Portal timout`
 ```c++
 // Sets the AP timeout to 120 seconds. The ESP restarts after 120 seconds without a connection.
 wifiManager.setConfigPortalTimeout(120);
 ```
+
+`Only show some buttons`
 ```c++
 // Remove all buttons except the wifi config and exit
 std::vector<const char *> wm_menu  = {"wifi", "exit"};
 wifiManager.setMenu(wm_menu);
 ```
+
+'Erase saved wifi credentials'
 ```c++
 // Erasing the WiFi settings
 Serial.println("Resetting");
