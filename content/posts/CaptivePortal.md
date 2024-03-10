@@ -67,6 +67,8 @@ void loop() {
 
 This code automatically attempts to connect the ESP32 to a previously connected WiFi network. If it fails or no known network is available, it launches a captive portal named "ESP32_AP." The user can connect to this network and select a WiFi network for the ESP32 to connect to.
 
+### Configuration Options
+
 In addition to the basic setup, the WiFiManager library provides several options to customize the behavior of the captive portal and WiFi connection process to suit your project needs. Here are some of the configurable options:
 
 ```c++
