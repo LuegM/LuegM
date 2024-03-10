@@ -136,7 +136,7 @@ Text("<icon>")
 	.faProSolid(size: 20)
 
 Text("<icon>")
-	.faProSolid(size: 20)
+	.faDuotone(size: 20)
 
 Text("<icon>")
 	.faSharpThin(size: 20)
