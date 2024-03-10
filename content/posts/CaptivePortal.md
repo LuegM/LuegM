@@ -49,9 +49,6 @@ void setup() {
   // Initializes WiFiManager
   WiFiManager wifiManager;
 
-  // Sets the AP timeout to 120 seconds. The ESP restarts after 120 seconds without a connection.
-  wifiManager.setConfigPortalTimeout(120);
-
   // Tries to connect to the last known network.
   // Launches a captive portal if the connection fails or the timeout is reached.
   if(!wifiManager.autoConnect("ESP32_AP")) {
@@ -68,7 +65,25 @@ void loop() {
 }
 ```
 
-This code automatically attempts to connect the ESP32 to a previously connected WiFi network. If it fails or no known network is available, it launches a captive portal named "ESP32_AP." The user can connect to this network and select a WiFi network for the ESP32 to connect to. If the connection is not established within 120 seconds, the ESP32 restarts, attempting the process again.
+This code automatically attempts to connect the ESP32 to a previously connected WiFi network. If it fails or no known network is available, it launches a captive portal named "ESP32_AP." The user can connect to this network and select a WiFi network for the ESP32 to connect to.
+
+In addition to the basic setup, the WiFiManager library provides several options to customize the behavior of the captive portal and WiFi connection process to suit your project needs. Here are some of the configurable options:
+
+```c++
+// Sets the AP timeout to 120 seconds. The ESP restarts after 120 seconds without a connection.
+wifiManager.setConfigPortalTimeout(120);
+```
+```c++
+// Remove all buttons except the wifi config and exit
+std::vector<const char *> wm_menu  = {"wifi", "exit"};
+wifiManager.setMenu(wm_menu);
+```
+```c++
+// Erasing the WiFi settings
+Serial.println("Resetting");
+wifiManager.resetSettings();
+ESP.restart();
+```
 
 ### Final Steps and Testing
 
