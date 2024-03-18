@@ -15,7 +15,7 @@ ShowShareButtons: false
 <br>
 {{< /rawhtml >}}
 
-**Full Name:** \
+### Full Name:
 Michael Luegmayer
 {{< rawhtml >}}
 <div class="social-icons">
@@ -55,7 +55,7 @@ Michael Luegmayer
 </div>
 {{< /rawhtml >}}
 
-**some facts:**
+### some facts:
 * 27 years old 
 * from Austria 🇦🇹
 
