@@ -59,10 +59,14 @@ Michael Luegmayer
 * 27 years old 
 * from Austria 🇦🇹
 
-### Academic Background
-* **Master's Degree** in Software Design and Engineering - FH Campus Wien
-* **Bachelor's Degree** in Mobile Computing - University of Applied Sciences Upper Austria, Campus Hagenberg
+#### Academic Background
 
-### Professional Experience
-* **Internship** at AhoiKapptn!
-* **App Development** for Samariterbund Österreich - Gruppe Lin
+<!--
+* Currently pursuing a Master's Degree in Software Design and Engineering - FH Campus Wien
+-->
+
+* Bachelor's Degree in Mobile Computing - University of Applied Sciences Upper Austria, Campus Hagenberg
+
+#### Professional Experience
+* Internship at AhoiKapptn!
+* App Development for Samariterbund Österreich - Gruppe Lin
