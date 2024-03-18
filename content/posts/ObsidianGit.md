@@ -51,7 +51,7 @@ To ensure a smooth workflow and keep your vault clean, consider the following en
 
 - **Automatic Backups**: Enable automatic backups to periodically save your work without manual intervention. You can set up the plugin to commit changes at specified intervals, ensuring your documentation is always up-to-date.
 
-- **Pull Changes on Startup**: Configure the plugin to pull changes from the remote repository each time you start Obsidian. This ensures that your local vault is always synchronized with the latest changes made by your team.
+- **Pull Changes on Startup**: Enable the "Pull updates on startup" option in the Git plugin's settings to configure the plugin to pull changes from the remote repository each time you start Obsidian. This setting, found under the "Backup" section, ensures that your local vault is always synchronized with the latest changes made by your team.
 
 - **Hotkeys for Common Git Actions**: Assign hotkeys to frequent Git operations like commit, push, and pull. This streamlines your workflow by allowing you to quickly perform version control tasks without leaving Obsidian.
 
