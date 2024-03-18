@@ -39,7 +39,6 @@ Using Obsidian in conjunction with GitHub offers a powerful solution for teams t
 To ensure a smooth workflow and keep your vault clean, consider the following enhancements:
 
 - **Exclude Unnecessary Files**: Create a \`.gitignore\` file in your vault's root directory. Add configurations to exclude cache files, system-specific files, and Obsidian's settings that you don't want to track. For example:
-
   ```
   # to exclude Obsidian's settings (including plugin and hotkey configurations)
   .obsidian/
