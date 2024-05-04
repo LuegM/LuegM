@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hex Colors on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/tags/hex-colors/</link>
+    <description>Recent content in Hex Colors on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Nov 2023 12:00:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/hex-colors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Custom Colors in SwiftUI</title>
+      <link>http://localhost:1313/posts/customcolors/</link>
+      <pubDate>Thu, 02 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/customcolors/</guid>
+      <description>Creating custom colors in SwiftUI enhances the visual appeal of your app and maintains consistency across the user interface. Extending the Color struct in SwiftUI is an efficient way to define and manage custom colors. Follow this step-by-step guide to learn how:
+Organize Your Code: Begin by creating a new Swift file. Naming it CustomColors.swift would be a logical choice. This practice helps in keeping your codebase organized and clean.</description>
+      <content:encoded><![CDATA[<p>Creating custom colors in SwiftUI enhances the visual appeal of your app and maintains consistency across the user interface. Extending the <code>Color</code> struct in SwiftUI is an efficient way to define and manage custom colors. Follow this step-by-step guide to learn how:</p>
+<ol>
+<li>
+<p><strong>Organize Your Code</strong>:
+Begin by creating a new Swift file. Naming it <code>CustomColors.swift</code> would be a logical choice. This practice helps in keeping your codebase organized and clean.</p>
+</li>
+<li>
+<p><strong>Extend the <code>Color</code> Struct</strong>:
+Open your new Swift file, and start by importing the SwiftUI framework. Then, extend the <code>Color</code> struct to add your custom color definitions.</p>
+</li>
+<li>
+<p><strong>Define Custom Colors</strong>:
+Within the extension, define static properties for your custom colors. Each property should return an instance of <code>Color</code>.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">SwiftUI</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">extension</span> <span class="nc">Color</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="kd">let</span> <span class="nv">customRed</span> <span class="p">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="mf">0.862</span><span class="p">,</span> <span class="n">green</span><span class="p">:</span> <span class="mf">0.1176</span><span class="p">,</span> <span class="n">blue</span><span class="p">:</span> <span class="mf">0.2078</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="kd">let</span> <span class="nv">customHexBlue</span> <span class="p">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">hex</span><span class="p">:</span> <span class="s">&#34;#0000FF&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">init</span><span class="p">(</span><span class="n">hex</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">hex</span> <span class="p">=</span> <span class="n">hex</span><span class="p">.</span><span class="n">trimmingCharacters</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="n">CharacterSet</span><span class="p">.</span><span class="n">alphanumerics</span><span class="p">.</span><span class="n">inverted</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nv">int</span><span class="p">:</span> <span class="nb">UInt64</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Scanner</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="n">hex</span><span class="p">).</span><span class="n">scanHexInt64</span><span class="p">(&amp;</span><span class="n">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">UInt64</span>
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="n">hex</span><span class="p">.</span><span class="bp">count</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">3</span><span class="p">:</span> <span class="c1">// RGB (12-bit)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="p">(</span><span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="mi">17</span><span class="p">,</span> <span class="p">(</span><span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span> <span class="o">&amp;</span> <span class="mh">0xF</span><span class="p">)</span> <span class="o">*</span> <span class="mi">17</span><span class="p">,</span> <span class="p">(</span><span class="n">int</span> <span class="o">&amp;</span> <span class="mh">0xF</span><span class="p">)</span> <span class="o">*</span> <span class="mi">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">6</span><span class="p">:</span> <span class="c1">// RGB (24-bit)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">,</span> <span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="n">int</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">8</span><span class="p">:</span> <span class="c1">// ARGB (32-bit)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">,</span> <span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="n">int</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">sRGB</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">red</span><span class="p">:</span> <span class="nb">Double</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">green</span><span class="p">:</span> <span class="nb">Double</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">blue</span><span class="p">:</span> <span class="nb">Double</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">opacity</span><span class="p">:</span> <span class="nb">Double</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>In the code above, we&rsquo;ve defined two custom colors and an initializer for hex values:</p>
+<ul>
+<li><code>customRed</code>: A predefined custom red color.</li>
+<li><code>customHexBlue</code>: A custom blue color initialized using a hex value.</li>
+<li><code>init(hex:)</code>: An initializer to create a color from a hex string.</li>
+</ul>
+<ol start="4">
+<li><strong>Usage in Your SwiftUI Project</strong>:
+You can now use your custom colors as <code>Color.customRed</code>, <code>Color.customHexBlue</code>, and so on, throughout your SwiftUI project.</li>
+</ol>
+<h4 id="handling-hex-colors">Handling Hex Colors:</h4>
+<p>The <code>Color</code> extension includes an initializer for hex strings, allowing you to easily define colors using hex values. The initializer handles different formats including RGB, ARGB, and more, converting them into a <code>Color</code> object.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

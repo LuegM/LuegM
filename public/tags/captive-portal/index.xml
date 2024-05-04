@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Captive Portal on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/tags/captive-portal/</link>
+    <description>Recent content in Captive Portal on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Mar 2024 12:00:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/captive-portal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integrating WiFi Setup with Captive Portal in your ESP32 Projects</title>
+      <link>http://localhost:1313/posts/captiveportal/</link>
+      <pubDate>Sun, 10 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/captiveportal/</guid>
+      <description>Integrating a WiFi setup with a captive portal into your ESP32 projects significantly enhances the user experience by simplifying the network connection process. This tutorial will guide you through setting up your ESP32 project with a captive portal using PlatformIO in Visual Studio Code (VSCode) and incorporating the WiFiManager library.
+Setting up PlatformIO in VSCode PlatformIO is an open-source ecosystem for IoT development. It supports a vast number of boards and frameworks, including ESP32.</description>
+      <content:encoded><![CDATA[<p>Integrating a WiFi setup with a captive portal into your ESP32 projects significantly enhances the user experience by simplifying the network connection process. This tutorial will guide you through setting up your ESP32 project with a captive portal using PlatformIO in Visual Studio Code (VSCode) and incorporating the WiFiManager library.</p>
+<h3 id="setting-up-platformio-in-vscode">Setting up PlatformIO in VSCode</h3>
+<p>PlatformIO is an open-source ecosystem for IoT development. It supports a vast number of boards and frameworks, including ESP32. To integrate PlatformIO with VSCode:</p>
+<ol>
+<li><strong>Install VSCode</strong>: Download and install Visual Studio Code from its <a href="https://code.visualstudio.com/">official website</a>.</li>
+<li><strong>Install the PlatformIO Extension</strong>: Open VSCode, go to the Extensions view by clicking on the square icon on the sidebar, or pressing <code>Ctrl+Shift+X</code>. Search for &ldquo;PlatformIO IDE&rdquo; and install it.</li>
+<li><strong>Restart VSCode</strong>: Once installed, restart VSCode to complete the setup.</li>
+</ol>
+<h3 id="initializing-your-project-with-platformio">Initializing Your Project with PlatformIO</h3>
+<p>After setting up PlatformIO, create a new project:</p>
+<ol>
+<li>Open PlatformIO Home by clicking on the PlatformIO icon in the sidebar.</li>
+<li>Click on “New Project”.</li>
+<li>Enter a name for your project, select &ldquo;Espressif ESP32 Dev Module&rdquo; as the board, and choose your preferred framework (e.g., Arduino).</li>
+<li>Click &ldquo;Finish&rdquo; to create the project.</li>
+</ol>
+<h3 id="adding-wifimanager-dependency">Adding WiFiManager Dependency</h3>
+<p>With your project set up, you need to include the WiFiManager library, which facilitates the WiFi connection and captive portal functionality. To do this, add the following line to your <code>platformio.ini</code> file:</p>
+<pre tabindex="0"><code>lib_deps =
+    https://github.com/tzapu/WiFiManager.git
+</code></pre><p>This line tells PlatformIO to download and include the WiFiManager library from the specified GitHub repository in your project.</p>
+<h3 id="implementing-wifi-setup-with-captive-portal">Implementing WiFi Setup with Captive Portal</h3>
+<p>The WiFiManager library simplifies the WiFi connection process by automatically connecting to known networks or launching a captive portal when the device can&rsquo;t connect to any known network. Below is an example code snippet on how to implement this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;WiFiManager.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Initializes WiFiManager
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">WiFiManager</span> <span class="n">wifiManager</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Tries to connect to the last known network.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// Launches a captive portal if the connection fails or the timeout is reached.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">wifiManager</span><span class="p">.</span><span class="n">autoConnect</span><span class="p">(</span><span class="s">&#34;ESP32_AP&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Failed to connect to WiFi. Please restart.&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">ESP</span><span class="p">.</span><span class="n">restart</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// If you reach this point, you have successfully connected to a network.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Connected to WiFi!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Your repeated code goes here.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><p>This code automatically attempts to connect the ESP32 to a previously connected WiFi network. If it fails or no known network is available, it launches a captive portal named &ldquo;ESP32_AP.&rdquo; The user can connect to this network and select a WiFi network for the ESP32 to connect to.</p>
+<h3 id="configuration-options">Configuration Options</h3>
+<p>In addition to the basic setup, the WiFiManager library provides several options to customize the behavior of the captive portal and WiFi connection process to suit your project needs. Here are some of the configurable options:</p>
+<p><code>Portal timout</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Sets the AP timeout to 120 seconds. The ESP restarts after 120 seconds without a connection.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">wifiManager</span><span class="p">.</span><span class="n">setConfigPortalTimeout</span><span class="p">(</span><span class="mi">120</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>Only show some buttons</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Remove all buttons except the wifi config and exit
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*&gt;</span> <span class="n">wm_menu</span>  <span class="o">=</span> <span class="p">{</span><span class="s">&#34;wifi&#34;</span><span class="p">,</span> <span class="s">&#34;exit&#34;</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">wifiManager</span><span class="p">.</span><span class="n">setMenu</span><span class="p">(</span><span class="n">wm_menu</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>Erase saved wifi credentials</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Erasing the WiFi settings
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Resetting&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">wifiManager</span><span class="p">.</span><span class="n">resetSettings</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">ESP</span><span class="p">.</span><span class="n">restart</span><span class="p">();</span>
+</span></span></code></pre></div><h3 id="final-steps-and-testing">Final Steps and Testing</h3>
+<p>After implementing the code, compile and upload it to your ESP32. To test the captive portal functionality, ensure the ESP32 isn&rsquo;t connected to any known networks. It should broadcast an SSID named &ldquo;ESP32_AP.&rdquo; Connect to this network using a smartphone or computer, and a captive portal should appear, prompting you to select a WiFi network and enter the password for the ESP32 to connect to.</p>
+<p><img loading="lazy" src="/CaptivePortal/WifiManagerPortal.png" alt=""  />
+</p>
+<p>By following this guide, you&rsquo;ve successfully integrated a WiFi setup with a captive portal into your ESP32 project, enhancing its accessibility and user-friendliness.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

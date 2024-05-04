@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>HowTo on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/tags/howto/</link>
+    <description>Recent content in HowTo on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Feb 2023 10:11:20 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Semantic Versioning: an Introduction with Examples</title>
+      <link>http://localhost:1313/posts/semanticversioning/</link>
+      <pubDate>Sun, 12 Feb 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/semanticversioning/</guid>
+      <description>Semantic versioning, also known as semver, is a popular versioning scheme used in software development to manage the releases of a project and communicate changes between different versions to stakeholders. Semantic versioning provides a standard way of versioning software, which makes it easier for developers to understand the compatibility of different versions and avoid potential breaking changes. In this article, we will explain the key concepts of semantic versioning and provide some examples to help you get started.</description>
+      <content:encoded><![CDATA[<p>Semantic versioning, also known as semver, is a popular versioning scheme used in software development to manage the releases of a project and communicate changes between different versions to stakeholders. Semantic versioning provides a standard way of versioning software, which makes it easier for developers to understand the compatibility of different versions and avoid potential breaking changes. In this article, we will explain the key concepts of semantic versioning and provide some examples to help you get started.</p>
+<h3 id="the-basics-of-semantic-versioning">The Basics of Semantic Versioning</h3>
+<p>Semantic versioning consists of three components: Major version, minor version, and patch version, separated by dots. The version number is written in the format X.Y.Z, where X is the major version, Y is the minor version, and Z is the patch version.</p>
+<p>Each component has a specific meaning and represents different levels of change in the software.</p>
+<ul>
+<li>Major version (X): This component represents a significant change in the software, such as adding new features, changing the API, or making breaking changes. A change in the major version means that older versions are no longer compatible with the latest version.</li>
+<li>Minor version (Y): This component represents a new feature or improvement to the software, without breaking existing functionality. When a new feature is added or a change is made that is backward-compatible, the minor version is incremented.</li>
+<li>Patch version (Z): This component represents a bug fix or a small change in the software that does not affect the functionality of the software. When a bug is fixed or a small change is made, the patch version is incremented.</li>
+</ul>
+<p><img loading="lazy" src="https://media.geeksforgeeks.org/wp-content/uploads/semver.png" alt=""  />
+</p>
+<h3 id="examples-of-semantic-versioning">Examples of Semantic Versioning</h3>
+<p>Here are some examples to help you understand how semantic versioning works in practice.</p>
+<h4 id="1-initial-release-of-a-project">1. Initial release of a project</h4>
+<p>When you are starting a new project, you can start with version 1.0.0. This version number represents the initial release of your project and includes the first set of features and functionality.</p>
+<h4 id="2--adding-a-new-feature">2.  Adding a new feature</h4>
+<p>When you add a new feature to your project, you can increment the minor version, for example, from 1.0.0 to 1.1.0. The new feature is backward-compatible with the previous version and does not break existing functionality.</p>
+<h4 id="3--fixing-a-bug">3.  Fixing a bug</h4>
+<p>When you fix a bug in your project, you can increment the patch version, for example, from 1.1.0 to 1.1.1. The bug fix is backward-compatible with the previous version and does not affect existing functionality.</p>
+<h4 id="4--making-a-breaking-change">4.  Making a breaking change</h4>
+<p>When you make a change to your project that breaks existing functionality, you can increment the major version, for example, from 1.1.1 to 2.0.0. The breaking change may affect other parts of the software that depend on the changed functionality, so it is important to communicate the change to stakeholders.</p>
+<p><img loading="lazy" src="https://media.geeksforgeeks.org/wp-content/uploads/20201021015029/WINWORD3DROTliALc-660x403.png" alt=""  />
+</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Semantic versioning is a simple yet powerful tool for managing the releases of a software project. It provides a clear and standard way of versioning software that makes it easier for developers to understand the compatibility of different versions and avoid potential breaking changes. By following semantic versioning, you can ensure that your project remains backward-compatible and that stakeholders are informed of any breaking changes.</p>
+<p><img loading="lazy" src="https://media.geeksforgeeks.org/wp-content/uploads/20201021010157/SemanticVersioning.png" alt=""  />
+</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

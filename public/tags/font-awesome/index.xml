@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Font Awesome on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/tags/font-awesome/</link>
+    <description>Recent content in Font Awesome on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Feb 2023 15:18:20 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/font-awesome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Font Awesome 6 in xCode &amp; SwiftUI</title>
+      <link>http://localhost:1313/posts/fontawesome/</link>
+      <pubDate>Thu, 02 Feb 2023 15:18:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/fontawesome/</guid>
+      <description>Introduction Welcome to my blog post on Font Awesome 6 in Xcode &amp;amp; SwiftUI.
+In this post, I&amp;rsquo;ll be sharing with you the steps on how to install Font Awesome icons in your Xcode project using SwiftUI.
+We&amp;rsquo;ll start by downloading the font files, adding the .otf files to the project, adding the fonts to the Info.plist file and creating a new struct for CustomFonts.
+Then, I&amp;rsquo;ll show you how to use Font Awesome icons in your Xcode project.</description>
+      <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Welcome to my blog post on <strong>Font Awesome 6 in Xcode &amp; SwiftUI</strong>.</p>
+<p>In this post, I&rsquo;ll be sharing with you the steps on how to install Font Awesome icons in your Xcode project using SwiftUI.</p>
+<p>We&rsquo;ll start by downloading the font files, adding the .otf files to the project, adding the fonts to the Info.plist file and creating a new struct for CustomFonts.</p>
+<p>Then, I&rsquo;ll show you how to use Font Awesome icons in your Xcode project.
+I&rsquo;ll take you through the process of searching for an icon on Font Awesome, copying the glyph, and adding the icon as text.</p>
+<p>To wrap things up, I&rsquo;ll also include a style preview to give you an idea of the various font styles available.
+Whether you&rsquo;re a beginner or an experienced iOS developer, this post will guide you through the process of adding Font Awesome icons to your Xcode project with ease.</p>
+<hr>
+<h2 id="how-to-add">How to add&hellip;</h2>
+<h3 id="1--download-the-font-files">1.  download the font files</h3>
+<p><a href="https://fontawesome.com/download">Download Font Awesome</a></p>
+<p>→ use the „<strong>For The Desktop</strong>“ Version</p>
+<p><img loading="lazy" src="/FA/screenshot_fa_download.png" alt=""  />
+</p>
+<h3 id="2-add-otf-files-to-the-project">2. add <em>.otf</em> files to the project</h3>
+<p><img loading="lazy" src="/FA/screenshot_fa_otfs.png" alt=""  />
+</p>
+<p>You will then be prompted with a dialog box.</p>
+<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Be sure to check your project name under “Add to targets.” <br>
+This will ensure that your fonts are compiled as assets at build time.</p></div>
+
+<p><img loading="lazy" src="/FA/screenshot_fa_addToTarget.png" alt=""  />
+</p>
+<h3 id="3-add-the-fonts-to-infoplist-file">3. add the fonts to „Info.plist“ file</h3>
+<p><img loading="lazy" src="/FA/screenshot_fa_infoPlist.png" alt=""  />
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">&lt;key&gt;UIAppFonts&lt;/key&gt;
+</span></span><span class="line"><span class="cl">	&lt;array&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Brands-Regular-400.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Duotone-Solid-900.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Light-300.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Regular-400.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Solid-900.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Thin-100.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Light-300.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Regular-400.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Solid-900.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Thin-100.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">	&lt;/array&gt;
+</span></span><span class="line"><span class="cl">&lt;/dict&gt;
+</span></span></code></pre></div><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>The fonts might not be named like these anymore.<br>
+Check real filenames!</p></div>
+
+<h3 id="4-create-a-new-struct-for-customfonts">4. create a new struct for <strong>CustomFonts</strong></h3>
+<ol>
+<li>create a new Swift File <em>(name: &ldquo;CustomFonts)</em></li>
+<li>add this code</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">extension</span> <span class="nc">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faPro</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Regular&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faProLight</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Light&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faProSolid</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Solid&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faProThin</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Thin&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faDuotone</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Duotone-Solid&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharp</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Regular&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharpLight</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Light&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharpSolid</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Solid&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faBrands</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Brands-Regular&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharpThin</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Thin&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><hr>
+<h2 id="how-to-use">How to use&hellip;</h2>
+<h3 id="1-go-to-font-awesome-and-search-for-an-icon">1. go to Font Awesome and search for an icon</h3>
+<p><a href="https://fontawesome.com/search">Search | Font Awesome</a></p>
+<h3 id="2-click-copy-glyph">2. click Copy Glyph</h3>
+<p><img loading="lazy" src="/FA/screenshot_fa_glyph.png" alt=""  />
+</p>
+<h3 id="3-add-the-icon-as-text">3. add the icon as text</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;&lt;icon&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">faProSolid</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;&lt;icon&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">faDuotone</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;&lt;icon&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">faSharpThin</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="style-preview">Style preview</h2>
+<p><img loading="lazy" src="/FA/style_prev.pdf" alt=""  />
+</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

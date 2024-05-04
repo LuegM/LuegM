@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in Categories on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Mar 2024 12:00:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Productivity Tools</title>
+      <link>http://localhost:1313/categories/productivity-tools/</link>
+      <pubDate>Mon, 18 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/productivity-tools/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Software Development</title>
+      <link>http://localhost:1313/categories/software-development/</link>
+      <pubDate>Mon, 18 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/software-development/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Embedded Systems</title>
+      <link>http://localhost:1313/categories/embedded-systems/</link>
+      <pubDate>Sun, 10 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/embedded-systems/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>IoT</title>
+      <link>http://localhost:1313/categories/iot/</link>
+      <pubDate>Sun, 10 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/iot/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Apple Wallet</title>
+      <link>http://localhost:1313/categories/apple-wallet/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/apple-wallet/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Backend</title>
+      <link>http://localhost:1313/categories/backend/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/backend/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>http://localhost:1313/categories/swift/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/swift/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>SwiftUI</title>
+      <link>http://localhost:1313/categories/swiftui/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/swiftui/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>http://localhost:1313/categories/security/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/security/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>General</title>
+      <link>http://localhost:1313/categories/general/</link>
+      <pubDate>Sun, 12 Feb 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/categories/general/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Swift on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/categories/swift/</link>
+    <description>Recent content in Swift on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Nov 2023 12:00:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/categories/swift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wallet Pass - Klimaticket</title>
+      <link>http://localhost:1313/posts/walletpass/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/walletpass/</guid>
+      <description>Welcome to my step-by-step guide on how to build your own digital ticket for the Apple Wallet. Today, I&amp;rsquo;m going to show you how to set up a backend system and create an app with SwiftUI that lets you store and use tickets right on your iPhone.
+We’re going to turn the Klimaticket, a yearly public transport ticket in Austria, into a ticket on your phone. This will make your travels simpler and help the planet too.</description>
+      <content:encoded><![CDATA[<p>Welcome to my step-by-step guide on how to build your own digital ticket for the Apple Wallet. Today, I&rsquo;m going to show you how to set up a backend system and create an app with SwiftUI that lets you store and use tickets right on your iPhone.</p>
+<p>We’re going to turn the Klimaticket, a yearly public transport ticket in Austria, into a ticket on your phone. This will make your travels simpler and help the planet too.</p>
+<p>By the time you finish this guide, you&rsquo;ll learn how to create digital passes for your wallet on your iPhone.</p>
+<p><img loading="lazy" src="/WalletPass/Screens.png" alt=""  />
+</p>
+<h2 id="preparations">Preparations</h2>
+<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Github-Link: <a href="https://github.com/LuegM/WalletPass/tree/main">WalletPass</a></p></div>
+
+<ol>
+<li>Create the server folder and initialize it</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir server <span class="o">&amp;&amp;</span> <span class="nb">cd</span> server <span class="o">&amp;&amp;</span> npm init -y
+</span></span></code></pre></div><ol start="2">
+<li>Next, we can add Fastify with </li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">npm i fastify
+</span></span></code></pre></div><ol start="3">
+<li>We will use <a href="https://github.com/alexandercerutti/passkit-generator">https://github.com/alexandercerutti/passkit-generator:</a>
+add it to your server dependencies by running this command while in the <code>./server</code> directory.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">npm i passkit-generator
+</span></span></code></pre></div><ol start="4">
+<li>install openssl</li>
+</ol>
+<p><em>Mac (<a href="https://brew.sh">Homebrew</a>)</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">brew install openssl
+</span></span></code></pre></div><p><em>Linux</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">sudo apt install openssl
+</span></span></code></pre></div><ol start="5">
+<li>create a cert folder (<code>/server/cert</code>)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">mkdir cert
+</span></span></code></pre></div><h2 id="create-the-certificates">Create the Certificates</h2>
+<ol>
+<li>
+<p>Create a new pass type identifier (<a href="https://developer.apple.com/account/resources/identifiers/passTypeId/add/">direct link</a>) and provide it with a description and a reverse-domain identifier (starting with &ldquo;pass.&rdquo;). You will have to put this identifier as a value for <code>passTypeIdentifier</code> in the <code>pass.json</code> file or as a prop.</p>
+</li>
+<li>
+<p>Confirm and register the new identifier.</p>
+</li>
+<li>
+<p><a href="https://developer.apple.com/account/resources/identifiers/list/passTypeId">In the list of your passTypeIds</a> (filter), click on your new pass id to edit it.</p>
+</li>
+<li>
+<p>Click on &ldquo;Create Certificate&rdquo;. </p>
+</li>
+<li>
+<p>To provide Apple with the required Certificate Signing Request, we&rsquo;ll have first to generate a private key. <strong>This will be your signerKey</strong>. Having it as <code>.key</code> or <code>.pem</code> doesn&rsquo;t make any difference: it is still a PEM.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># If you want to set it as a passphrase, add &#34;-passout pass:&lt;your-passphrase&gt;&#34; before &#34;2048&#34;.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># If you follow the passphrase way, you&#39;ll have to set a &#34;-passin pass:&lt;your-passphrase&gt;&#34; (or insert it manually)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># in the next commands and, once done, set it to passkit-generator at `signerKeyPassphrase`.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ openssl genrsa -out signerKey.key <span class="m">2048</span>
+</span></span></code></pre></div><ol start="6">
+<li>Generate a CSR using your private key. Usually, the final file should have a <code>.csr</code> extension, but there is no difference: <code>.csr</code> is an ASN.1 Base64 encoded text. Therefore it can have any extension you want. You&rsquo;ll be prompted to insert a few pieces of information one per prompt. Continue reading.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ openssl req -new -key signerKey.key -out request.certSigningRequest
+</span></span></code></pre></div><blockquote>
+<p>In the required information, you&rsquo;ll have to insert Apple CA&rsquo;s information, like below (those among <strong>asterisks</strong>). If none, press Enter to skip. After the email address, you won&rsquo;t need any further information. So press Enter until you won&rsquo;t finish.</p>
+</blockquote>
+<pre tabindex="0"><code>Country Name (2-letter code) [AU]: US
+State or Province Name [Some-State]: United States
+Locality Name []:
+Organization Name [Internet Widgits Pty Ltd]: Apple Inc.
+Organizational Unit Name []: Apple Worldwide Developer Relations
+Common Name []: Apple Worldwide Developer Relations Certification Authority
+Email Address []: your-email
+</code></pre><ol start="7">
+<li>
+<p>Take the generated file <code>request.certSigningRequest</code> and upload it to the provisioning portal at step 4. Once processed, you&rsquo;ll be able to download a certificate like <code>pass.cer</code></p>
+</li>
+<li>
+<p>Once downloaded the certificate, you&rsquo;ll have to convert it to <code>.pem</code> (from a DER-encoded to PEM Base64 encoded). Save the result somewhere safe. You&rsquo;ll be using it in your application as <code>signerCert</code>.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># .cer to .pem</span>
+</span></span><span class="line"><span class="cl">$ openssl x509 -inform DER -outform PEM -in signerCert.cer -out signerCert.pem
+</span></span></code></pre></div><ol start="9">
+<li>Go to this website: <a href="https://www.apple.com/certificateauthority/">Apple PKI</a> and download the certificate called <a href="https://www.apple.com/certificateauthority/AppleWWDRCAG4.cer">Worldwide Developer Relations - G4</a></li>
+<li>Take the WWDR Certificate and convert it to a <code>.pem</code> base64.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># .cer to .pem</span>
+</span></span><span class="line"><span class="cl">$ openssl x509 -inform DER -outform PEM -in &lt;cert name&gt;.cer -out wwdr.pem
+</span></span></code></pre></div><ol start="11">
+<li>Copy the 3 certificates to the folder <code>/server/cert</code></li>
+</ol>
+<ul>
+<li><code>signerCert.pem</code></li>
+<li><code>signerKey.key</code></li>
+<li><code>wwdr.pem</code></li>
+</ul>
+<p>And you are done with the certificates. 🎉 Now get back and try to create your first pass!</p>
+<h2 id="create-a-model">Create a model</h2>
+<p>You can either create a said model manually by following the <a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/PassKit_PG/Creating.html">official guidelines from Apple</a> or just use a visual tool like <a href="https://pkvd.app/">Passkit Visual Designer</a> provided by the authors of the Passkit Generator.</p>
+<p><strong>Or use the file I provide in my Github-Repo:</strong>
+<a href="https://github.com/LuegM/WalletPass/tree/main/Server/transit.pass">Transit.pass</a></p>
+<p>Put the Model-Pass in the server folder like this:
+<code>/server/&lt;modelName&gt;.pass/</code></p>
+<p>In my case:
+<code>/server/transit.pass/</code></p>
+<div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Please keep in mind that even if you are using the example model folder from the repository, you need to edit <code>pass.json</code> to replace <code>passTypeIdentifier</code> and <code>teamIdentifier</code> with your own values matching those from your signing certificate. If you don’t do this then you won’t be able to sign the passes properly.</p></div>
+
+<h2 id="setup-the-server">Setup the Server</h2>
+<p>Finally, we are ready to generate our first Apple Wallet pass.
+Let’s open <code>./server/index.js</code> and add a new POST endpoint looking like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">fastify</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fastify&#39;</span><span class="p">)(</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">logger</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">bodyLimit</span><span class="o">:</span> <span class="mi">15</span> <span class="o">*</span> <span class="mi">1048576</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">PKPass</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passkit-generator&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Certificates
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">certDirectory</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">(),</span> <span class="s1">&#39;cert&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">wwdr</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">certDirectory</span><span class="p">,</span> <span class="s1">&#39;wwdr.pem&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">signerCert</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">certDirectory</span><span class="p">,</span> <span class="s1">&#39;signerCert.pem&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">signerKey</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">certDirectory</span><span class="p">,</span> <span class="s1">&#39;signerKey.key&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Input Fields
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fastify</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">reply</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cardNr</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dateFrom</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dateTo</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dateBirth</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">type</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">passID</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">&#39;md5&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">_</span><span class="si">${</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Generate the pass
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">pass</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">PKPass</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Path to your pass model directory
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">model</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">(),</span> <span class="s1">&#39;transit.pass&#39;</span><span class="p">),</span>  
+</span></span><span class="line"><span class="cl">    <span class="nx">certificates</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">wwdr</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">signerCert</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">signerKey</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">serialNumber</span><span class="o">:</span> <span class="nx">passID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Expiration Format
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">day</span><span class="p">,</span> <span class="nx">month</span><span class="p">,</span> <span class="nx">year</span><span class="p">]</span> <span class="o">=</span> <span class="nx">dateTo</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">year</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">month</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">day</span><span class="si">}</span><span class="sb">T23:59:00+01:00`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Expiration Date
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">pass</span><span class="p">.</span><span class="nx">setExpirationDate</span><span class="p">(</span><span class="nx">date</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// headerFields
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">pass</span><span class="p">.</span><span class="nx">headerFields</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">value</span><span class="o">:</span> <span class="nx">type</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// primaryFields
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">pass</span><span class="p">.</span><span class="nx">primaryFields</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">value</span><span class="o">:</span> <span class="nx">name</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// secondaryFields
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">pass</span><span class="p">.</span><span class="nx">secondaryFields</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;cardNr&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;Kartennummer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">value</span><span class="o">:</span> <span class="nx">cardNr</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;dateTo&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;Ablaufdatum&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">value</span><span class="o">:</span> <span class="nx">dateTo</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// auxiliaryFields
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">pass</span><span class="p">.</span><span class="nx">auxiliaryFields</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;dateBirth&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;Geburtsdatum&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">value</span><span class="o">:</span> <span class="nx">dateBirth</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;dateFrom&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;Beginn&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">value</span><span class="o">:</span> <span class="nx">dateFrom</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">reply</span><span class="p">.</span><span class="nx">header</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/vnd-apple.pkpass&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">reply</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">pass</span><span class="p">.</span><span class="nx">getAsBuffer</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Start the server
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fastify</span><span class="p">.</span><span class="nx">listen</span><span class="p">({</span> <span class="nx">port</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">??</span> <span class="mi">3000</span><span class="p">,</span> <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;0.0.0.0&#39;</span> <span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fastify</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fastify</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="sb">`Server listening on </span><span class="si">${</span><span class="nx">fastify</span><span class="p">.</span><span class="nx">server</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><p>Let’s test it: from the <code>./server</code> folder, run <code>node index.js</code>.
+You should get a confirmation that your server is running at http://localhost:3000.</p>
+<p>The next step involves using Postman, <code>curl</code>, or any other tool that will let you make a POST request to http://localhost:3000.</p>
+<p>Use this as the request body:</p>
+<pre tabindex="0"><code>{ 
+    &#34;name&#34;: &#34;John Smith&#34; 
+    &#34;cardNr&#34;: &#34;1234&#34;,
+    &#34;dateFrom&#34;: &#34;01.01.2020&#34;,
+    &#34;dateTo&#34;: &#34;12.12.2025&#34;,
+    &#34;dateBirth&#34;: &#34;01.01.1999&#34;,
+    &#34;type&#34;: &#34;Classic&#34;
+}
+</code></pre><p>If all is done right, you should receive back a binary file that you can save under a name with a .pkpass extension, which will allow you to preview the pass with Pass Viewer built-in into MacOS.</p>
+<h3 id="add-an-image-and-use-an-aztec-code">Add an Image and use an Aztec Code</h3>
+<div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>You can find the complete code here: <a href="https://github.com/LuegM/WalletPass/blob/main/Server/index.js">Github: index.js</a></p></div>
+
+<p>Change this part of the code to include <code>aztecCode</code> and <code>image</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">fastify</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">reply</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cardNr</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dateFrom</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dateTo</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dateBirth</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">aztecCode</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">type</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+</span></span></code></pre></div><p>Also add this Code to add them to the pass.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// MARK: add Infos to the pass
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Barcode Type
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">barcode</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">format</span><span class="o">:</span> <span class="s2">&#34;PKBarcodeFormatAztec&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">message</span><span class="o">:</span> <span class="nx">aztecCode</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">messageEncoding</span><span class="o">:</span> <span class="s2">&#34;iso-8859-1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Barcode Data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">pass</span><span class="p">.</span><span class="nx">setBarcodes</span><span class="p">(</span><span class="nx">barcode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Add a Image to the pass
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Decode the image from Base64 and save or use it directly
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">imageBuffer</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="s2">&#34;base64&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="c1">// Now you can use the image in your PKPass
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">pass</span><span class="p">.</span><span class="nx">addBuffer</span><span class="p">(</span><span class="s2">&#34;thumbnail.png&#34;</span><span class="p">,</span> <span class="nx">imageBuffer</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pass</span><span class="p">.</span><span class="nx">addBuffer</span><span class="p">(</span><span class="s2">&#34;thumbnail@2x.png&#34;</span><span class="p">,</span> <span class="nx">imageBuffer</span><span class="p">);</span>
+</span></span></code></pre></div><h2 id="create-the-app">Create the App</h2>
+<ol>
+<li>Create a Model to Pass Data</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">FormData</span><span class="p">:</span> <span class="n">ObservableObject</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Published</span> <span class="kd">var</span> <span class="nv">fullName</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Published</span> <span class="kd">var</span> <span class="nv">cardNr</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Published</span> <span class="kd">var</span> <span class="nv">dateFrom</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Published</span> <span class="kd">var</span> <span class="nv">dateTo</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Published</span> <span class="kd">var</span> <span class="nv">dateBirth</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Published</span> <span class="kd">var</span> <span class="nv">type</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;Classic&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Published</span> <span class="kd">var</span> <span class="nv">aztecCode</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Published</span> <span class="kd">var</span> <span class="nv">imgBase64</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">isComplete</span><span class="p">:</span> <span class="nb">Bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">!</span><span class="n">fullName</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">cardNr</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">dateFrom</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">dateTo</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">dateBirth</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">type</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">aztecCode</span><span class="p">.</span><span class="bp">isEmpty</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">imgBase64</span><span class="p">.</span><span class="bp">isEmpty</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="2">
+<li>Create the View for the user input</li>
+</ol>
+<blockquote>
+<p>The provided code snippet is for an iOS app&rsquo;s user interface where you fill out a form with personal and card details to get a digital pass. Here&rsquo;s how it works, in simple terms:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>You enter your name, birthdate, card type, and card number.</li>
+<li>You can also pick dates for when the card starts and ends.</li>
+<li>The app has a &ldquo;Scan Code&rdquo; button. When you tap it, it uses the &ldquo;CodeScanner&rdquo; dependency to scan a code, like the barcode on your card.</li>
+<li>You can also add a picture by choosing one from your photos.</li>
+<li>Once all your info is complete, you tap &ldquo;Fetch and Open Pass,&rdquo; and the app sends your info to a server. Then it gets back a digital pass, which looks like a little card in your app&rsquo;s wallet.</li>
+<li>If you tap the settings icon, you can change the server&rsquo;s IP address.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>If something doesn&rsquo;t work right, the app will show you an error message so you know what went wrong.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">SwiftUI</span>
+</span></span><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">PhotosUI</span>
+</span></span><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">PassKit</span>
+</span></span><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">CodeScanner</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">StateObject</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">formData</span> <span class="p">=</span> <span class="n">FormData</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">isLoading</span><span class="p">:</span> <span class="nb">Bool</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">pass</span><span class="p">:</span> <span class="n">PKPass</span><span class="p">?</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">showPassView</span><span class="p">:</span> <span class="nb">Bool</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">showScanner</span><span class="p">:</span> <span class="nb">Bool</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">showError</span><span class="p">:</span> <span class="nb">Bool</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">showSetting</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">errorText</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&#34;An error occurred while importing the pass.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">serverIP</span> <span class="p">=</span> <span class="s">&#34;services.it-lueg.at:3000&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">dateFrom</span><span class="p">:</span> <span class="n">Date</span> <span class="p">=</span> <span class="n">Date</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">dateTo</span><span class="p">:</span> <span class="n">Date</span> <span class="p">=</span> <span class="n">Date</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">dateBirth</span><span class="p">:</span> <span class="n">Date</span> <span class="p">=</span> <span class="n">Date</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">dateFormatter</span><span class="p">:</span> <span class="n">DateFormatter</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">formatter</span> <span class="p">=</span> <span class="n">DateFormatter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">formatter</span><span class="p">.</span><span class="n">dateFormat</span> <span class="p">=</span> <span class="s">&#34;dd.MM.yyyy&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">formatter</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">avatarItem</span><span class="p">:</span> <span class="n">PhotosPickerItem</span><span class="p">?</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">avatarImage</span><span class="p">:</span> <span class="n">Image</span><span class="p">?</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">NavigationStack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Form</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Section</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">TextField</span><span class="p">(</span><span class="s">&#34;Full Name&#34;</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="err">$</span><span class="n">formData</span><span class="p">.</span><span class="n">fullName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">DatePicker</span><span class="p">(</span><span class="s">&#34;Birth Date&#34;</span><span class="p">,</span> <span class="n">selection</span><span class="p">:</span> <span class="err">$</span><span class="n">dateBirth</span><span class="p">,</span> <span class="n">displayedComponents</span><span class="p">:</span> <span class="p">.</span><span class="n">date</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">.</span><span class="n">onChange</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">dateBirth</span><span class="p">)</span> <span class="p">{</span> <span class="n">newDate</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">formData</span><span class="p">.</span><span class="n">dateBirth</span> <span class="p">=</span> <span class="n">dateFormatter</span><span class="p">.</span><span class="n">string</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="n">newDate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span> <span class="n">header</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">Text</span><span class="p">(</span><span class="s">&#34;Personal Infos&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">Section</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">TextField</span><span class="p">(</span><span class="s">&#34;Type&#34;</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="err">$</span><span class="n">formData</span><span class="p">.</span><span class="n">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">TextField</span><span class="p">(</span><span class="s">&#34;Card Number&#34;</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="err">$</span><span class="n">formData</span><span class="p">.</span><span class="n">cardNr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">DatePicker</span><span class="p">(</span><span class="s">&#34;Valid From&#34;</span><span class="p">,</span> <span class="n">selection</span><span class="p">:</span> <span class="err">$</span><span class="n">dateFrom</span><span class="p">,</span> <span class="n">displayedComponents</span><span class="p">:</span> <span class="p">.</span><span class="n">date</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">.</span><span class="n">onChange</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">dateFrom</span><span class="p">)</span> <span class="p">{</span> <span class="n">newDate</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">formData</span><span class="p">.</span><span class="n">dateFrom</span> <span class="p">=</span> <span class="n">dateFormatter</span><span class="p">.</span><span class="n">string</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="n">newDate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">DatePicker</span><span class="p">(</span><span class="s">&#34;Valid Until&#34;</span><span class="p">,</span> <span class="n">selection</span><span class="p">:</span> <span class="err">$</span><span class="n">dateTo</span><span class="p">,</span> <span class="n">displayedComponents</span><span class="p">:</span> <span class="p">.</span><span class="n">date</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">.</span><span class="n">onChange</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">dateTo</span><span class="p">)</span> <span class="p">{</span> <span class="n">newDate</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">formData</span><span class="p">.</span><span class="n">dateTo</span> <span class="p">=</span> <span class="n">dateFormatter</span><span class="p">.</span><span class="n">string</span><span class="p">(</span><span class="n">from</span><span class="p">:</span> <span class="n">newDate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span> <span class="n">header</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">Text</span><span class="p">(</span><span class="s">&#34;Card Infos&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">Section</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">Button</span><span class="p">(</span><span class="n">action</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">showScanner</span><span class="p">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">},</span> <span class="n">label</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">Label</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">HStack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">Text</span><span class="p">(</span><span class="s">&#34;Scan Code&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">Spacer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">if</span> <span class="n">formData</span><span class="p">.</span><span class="n">aztecCode</span> <span class="o">!=</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;checkmark.circle.fill&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                        <span class="p">.</span><span class="n">foregroundStyle</span><span class="p">(.</span><span class="n">green</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span> <span class="n">icon</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;qrcode&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">                    
+</span></span><span class="line"><span class="cl">                    
+</span></span><span class="line"><span class="cl">                    <span class="n">PhotosPicker</span><span class="p">(</span><span class="n">selection</span><span class="p">:</span> <span class="err">$</span><span class="n">avatarItem</span><span class="p">,</span> <span class="n">matching</span><span class="p">:</span> <span class="p">.</span><span class="n">images</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">Label</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">HStack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">Text</span><span class="p">(</span><span class="s">&#34;Picture&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">Spacer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">if</span> <span class="n">formData</span><span class="p">.</span><span class="n">imgBase64</span> <span class="o">!=</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;checkmark.circle.fill&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                        <span class="p">.</span><span class="n">foregroundStyle</span><span class="p">(.</span><span class="n">green</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span> <span class="n">icon</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;face.smiling&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">Section</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">Button</span><span class="p">(</span><span class="n">action</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">postAndPreviewPass</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">Label</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">HStack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">Text</span><span class="p">(</span><span class="s">&#34;Fetch and Open Pass&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">Spacer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">if</span> <span class="n">isLoading</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">ProgressView</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span> <span class="n">icon</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;wallet.pass.fill&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">.</span><span class="n">foregroundStyle</span><span class="p">(</span><span class="n">formData</span><span class="p">.</span><span class="n">isComplete</span> <span class="p">?</span> <span class="p">.</span><span class="n">blue</span> <span class="p">:</span> <span class="p">.</span><span class="n">gray</span><span class="p">.</span><span class="n">opacity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">.</span><span class="n">disabled</span><span class="p">(</span><span class="o">!</span><span class="n">formData</span><span class="p">.</span><span class="n">isComplete</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">onChange</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">avatarItem</span><span class="p">)</span> <span class="p">{</span> <span class="kc">_</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Task</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="k">try</span><span class="p">?</span> <span class="n">await</span> <span class="n">avatarItem</span><span class="p">?.</span><span class="n">loadTransferable</span><span class="p">(</span><span class="n">type</span><span class="p">:</span> <span class="n">Data</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="kd">let</span> <span class="nv">uiImage</span> <span class="p">=</span> <span class="n">UIImage</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="c1">// Determine the dimensions of the original image</span>
+</span></span><span class="line"><span class="cl">                            <span class="kd">let</span> <span class="nv">originalSize</span> <span class="p">=</span> <span class="n">uiImage</span><span class="p">.</span><span class="n">size</span>
+</span></span><span class="line"><span class="cl">                            <span class="kd">let</span> <span class="nv">minDimension</span> <span class="p">=</span> <span class="bp">min</span><span class="p">(</span><span class="n">originalSize</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">originalSize</span><span class="p">.</span><span class="n">height</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            
+</span></span><span class="line"><span class="cl">                            <span class="c1">// Calculate the cropping rectangle</span>
+</span></span><span class="line"><span class="cl">                            <span class="kd">let</span> <span class="nv">croppingRect</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">originalSize</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">minDimension</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                                      <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">originalSize</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">minDimension</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                                      <span class="n">width</span><span class="p">:</span> <span class="n">minDimension</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                                      <span class="n">height</span><span class="p">:</span> <span class="n">minDimension</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            
+</span></span><span class="line"><span class="cl">                            <span class="c1">// Crop the image to a square</span>
+</span></span><span class="line"><span class="cl">                            <span class="kd">let</span> <span class="nv">croppedImage</span> <span class="p">=</span> <span class="n">uiImage</span><span class="p">.</span><span class="n">cropping</span><span class="p">(</span><span class="n">to</span><span class="p">:</span> <span class="n">croppingRect</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            
+</span></span><span class="line"><span class="cl">                            <span class="c1">// Proceed with your existing code...</span>
+</span></span><span class="line"><span class="cl">                            <span class="kd">let</span> <span class="nv">maxDimension</span><span class="p">:</span> <span class="n">CGFloat</span> <span class="p">=</span> <span class="mi">300</span> <span class="c1">// Set the maximum dimension you want</span>
+</span></span><span class="line"><span class="cl">                            <span class="kd">let</span> <span class="nv">scaledImage</span> <span class="p">=</span> <span class="n">croppedImage</span><span class="p">!.</span><span class="n">scaledDown</span><span class="p">(</span><span class="n">to</span><span class="p">:</span> <span class="n">maxDimension</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            
+</span></span><span class="line"><span class="cl">                            <span class="c1">// Create a new image context</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">UIGraphicsBeginImageContextWithOptions</span><span class="p">(</span><span class="n">scaledImage</span><span class="p">.</span><span class="n">size</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">defer</span> <span class="p">{</span> <span class="n">UIGraphicsEndImageContext</span><span class="p">()</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                            
+</span></span><span class="line"><span class="cl">                            <span class="c1">// Create a path that is a circle</span>
+</span></span><span class="line"><span class="cl">                            <span class="kd">let</span> <span class="nv">path</span> <span class="p">=</span> <span class="n">UIBezierPath</span><span class="p">(</span><span class="n">ovalIn</span><span class="p">:</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">origin</span><span class="p">:</span> <span class="p">.</span><span class="n">zero</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">scaledImage</span><span class="p">.</span><span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">path</span><span class="p">.</span><span class="n">addClip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                            
+</span></span><span class="line"><span class="cl">                            <span class="c1">// Draw the image in the current context</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">scaledImage</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">origin</span><span class="p">:</span> <span class="p">.</span><span class="n">zero</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">scaledImage</span><span class="p">.</span><span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                            
+</span></span><span class="line"><span class="cl">                            <span class="c1">// Get the clipped image</span>
+</span></span><span class="line"><span class="cl">                            <span class="kd">let</span> <span class="nv">clippedImage</span> <span class="p">=</span> <span class="n">UIGraphicsGetImageFromCurrentImageContext</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                            
+</span></span><span class="line"><span class="cl">                            <span class="c1">// Convert the clipped image to Data, then to Base64</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">formData</span><span class="p">.</span><span class="n">imgBase64</span> <span class="p">=</span> <span class="n">clippedImage</span><span class="p">?.</span><span class="n">pngData</span><span class="p">()?.</span><span class="n">base64EncodedString</span><span class="p">()</span> <span class="p">??</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">                            <span class="bp">print</span><span class="p">(</span><span class="n">formData</span><span class="p">.</span><span class="n">imgBase64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Failed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">sheet</span><span class="p">(</span><span class="n">isPresented</span><span class="p">:</span> <span class="err">$</span><span class="n">showPassView</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">AddPassView</span><span class="p">(</span><span class="n">pass</span><span class="p">:</span> <span class="err">$</span><span class="n">pass</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">sheet</span><span class="p">(</span><span class="n">isPresented</span><span class="p">:</span> <span class="err">$</span><span class="n">showScanner</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">CodeScannerView</span><span class="p">(</span><span class="n">codeTypes</span><span class="p">:</span> <span class="p">[.</span><span class="n">aztec</span><span class="p">],</span> <span class="n">showViewfinder</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="n">simulatedData</span><span class="p">:</span> <span class="s">&#34;Paul Hudson&#34;</span><span class="p">)</span> <span class="p">{</span> <span class="n">response</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">switch</span> <span class="n">response</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">case</span> <span class="p">.</span><span class="n">success</span><span class="p">(</span><span class="kd">let</span> <span class="nv">result</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">formData</span><span class="p">.</span><span class="n">aztecCode</span> <span class="p">=</span> <span class="n">result</span><span class="p">.</span><span class="n">string</span>
+</span></span><span class="line"><span class="cl">                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Found code: </span><span class="si">\(</span><span class="n">result</span><span class="p">.</span><span class="n">string</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">showScanner</span><span class="p">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">case</span> <span class="p">.</span><span class="n">failure</span><span class="p">(</span><span class="kd">let</span> <span class="nv">error</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                        <span class="bp">print</span><span class="p">(</span><span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="n">ignoresSafeArea</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="n">presentationDetents</span><span class="p">([.</span><span class="n">medium</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">alert</span><span class="p">(</span><span class="n">isPresented</span><span class="p">:</span> <span class="err">$</span><span class="n">showError</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Alert</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="n">Text</span><span class="p">(</span><span class="s">&#34;Error&#34;</span><span class="p">),</span> <span class="n">message</span><span class="p">:</span> <span class="n">Text</span><span class="p">(</span><span class="n">errorText</span><span class="p">),</span> <span class="n">dismissButton</span><span class="p">:</span> <span class="p">.</span><span class="k">default</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;OK&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">alert</span><span class="p">(</span><span class="s">&#34;Server IP&#34;</span><span class="p">,</span> <span class="n">isPresented</span><span class="p">:</span> <span class="err">$</span><span class="n">showSetting</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">TextField</span><span class="p">(</span><span class="s">&#34;Name&#34;</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="err">$</span><span class="n">serverIP</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">navigationTitle</span><span class="p">(</span><span class="s">&#34;KlimaWallet&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">toolbar</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ToolbarItem</span><span class="p">(</span><span class="n">placement</span><span class="p">:</span> <span class="p">.</span><span class="n">topBarTrailing</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">Button</span><span class="p">(</span><span class="n">action</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">showSetting</span><span class="p">.</span><span class="n">toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">},</span> <span class="n">label</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;gear&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="3">
+<li>Add a function to send the data to the server, receive a pass, create the .pkpass file and show it to the user</li>
+</ol>
+<blockquote>
+<p>The <code>postAndPreviewPass()</code> method is sending the information to a server and then turning that into a digital pass, like a movie ticket or boarding pass, that you can see in the app. First, it shows a spinner to let you know it&rsquo;s working. Then, it sends off the details and waits for a reply. If all goes well, it saves this info as a special pass file. After that, the app tries to turn this file into a digital pass you can actually use. If there&rsquo;s a problem at any step, the app will show an error message instead. This makes it super easy to get and use passes without leaving the app.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">postAndPreviewPass</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">isLoading</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1">// Replace this URL with your own</span>
+</span></span><span class="line"><span class="cl">        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&#34;http://</span><span class="si">\(</span><span class="n">serverIP</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Invalid URL&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nv">request</span> <span class="p">=</span> <span class="n">URLRequest</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">request</span><span class="p">.</span><span class="n">httpMethod</span> <span class="p">=</span> <span class="s">&#34;POST&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">request</span><span class="p">.</span><span class="n">addValue</span><span class="p">(</span><span class="s">&#34;application/json&#34;</span><span class="p">,</span> <span class="n">forHTTPHeaderField</span><span class="p">:</span> <span class="s">&#34;Content-Type&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">payload</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;name&#34;</span><span class="p">:</span> <span class="n">formData</span><span class="p">.</span><span class="n">fullName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;cardNr&#34;</span><span class="p">:</span> <span class="n">formData</span><span class="p">.</span><span class="n">cardNr</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;dateFrom&#34;</span><span class="p">:</span> <span class="n">formData</span><span class="p">.</span><span class="n">dateFrom</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;dateTo&#34;</span><span class="p">:</span> <span class="n">formData</span><span class="p">.</span><span class="n">dateTo</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;dateBirth&#34;</span><span class="p">:</span> <span class="n">formData</span><span class="p">.</span><span class="n">dateBirth</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;aztecCode&#34;</span><span class="p">:</span> <span class="n">formData</span><span class="p">.</span><span class="n">aztecCode</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;type&#34;</span><span class="p">:</span> <span class="n">formData</span><span class="p">.</span><span class="n">type</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;image&#34;</span> <span class="p">:</span> <span class="n">formData</span><span class="p">.</span><span class="n">imgBase64</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">request</span><span class="p">.</span><span class="n">httpBody</span> <span class="p">=</span> <span class="k">try</span> <span class="n">JSONSerialization</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">withJSONObject</span><span class="p">:</span> <span class="n">payload</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nv">task</span> <span class="p">=</span> <span class="n">URLSession</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">dataTask</span><span class="p">(</span><span class="n">with</span><span class="p">:</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="kc">_</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">                <span class="k">defer</span> <span class="p">{</span> <span class="kc">self</span><span class="p">.</span><span class="n">isLoading</span> <span class="p">=</span> <span class="kc">false</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">guard</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">error</span> <span class="p">==</span> <span class="kc">nil</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Request failed: </span><span class="si">\(</span><span class="n">error</span><span class="p">?.</span><span class="n">localizedDescription</span> <span class="p">??</span> <span class="s">&#34;No data&#34;</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Received data from server: </span><span class="si">\(</span><span class="n">data</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="kd">let</span> <span class="nv">dir</span> <span class="p">=</span> <span class="n">FileManager</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">urls</span><span class="p">(</span><span class="k">for</span><span class="p">:</span> <span class="p">.</span><span class="n">documentDirectory</span><span class="p">,</span> <span class="k">in</span><span class="p">:</span> <span class="p">.</span><span class="n">userDomainMask</span><span class="p">).</span><span class="bp">first</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">let</span> <span class="nv">fileURL</span> <span class="p">=</span> <span class="n">dir</span><span class="p">.</span><span class="n">appendingPathComponent</span><span class="p">(</span><span class="s">&#34;file.pkpass&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    
+</span></span><span class="line"><span class="cl">                    <span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">try</span> <span class="n">data</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">to</span><span class="p">:</span> <span class="n">fileURL</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">.</span><span class="n">atomic</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;pkpass file saved&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        
+</span></span><span class="line"><span class="cl">                        <span class="kd">let</span> <span class="nv">passData</span> <span class="p">=</span> <span class="k">try</span> <span class="n">Data</span><span class="p">(</span><span class="n">contentsOf</span><span class="p">:</span> <span class="n">fileURL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Read </span><span class="si">\(</span><span class="n">passData</span><span class="p">.</span><span class="bp">count</span><span class="si">)</span><span class="s"> bytes from saved file&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        
+</span></span><span class="line"><span class="cl">                        <span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="kd">let</span> <span class="nv">pass</span> <span class="p">=</span> <span class="k">try</span> <span class="n">PKPass</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">passData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Created PKPass object&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">asyncAfter</span><span class="p">(</span><span class="n">deadline</span><span class="p">:</span> <span class="p">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                <span class="kc">self</span><span class="p">.</span><span class="n">pass</span> <span class="p">=</span> <span class="n">pass</span>
+</span></span><span class="line"><span class="cl">                                <span class="kc">self</span><span class="p">.</span><span class="n">showPassView</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Error creating PKPass object: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">async</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                <span class="kc">self</span><span class="p">.</span><span class="n">errorText</span> <span class="p">=</span> <span class="s">&#34;Error creating PKPass object: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl">                                <span class="kc">self</span><span class="p">.</span><span class="n">showError</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;An error occurred: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">async</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="kc">self</span><span class="p">.</span><span class="n">errorText</span> <span class="p">=</span> <span class="s">&#34;An error occurred: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl">                            <span class="kc">self</span><span class="p">.</span><span class="n">showError</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="n">task</span><span class="p">.</span><span class="n">resume</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Failed to serialize JSON: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">async</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kc">self</span><span class="p">.</span><span class="n">errorText</span> <span class="p">=</span> <span class="s">&#34;Failed to serialize JSON: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="kc">self</span><span class="p">.</span><span class="n">showError</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></div><ol start="4">
+<li>We also need extensions to <code>UIImage</code> to scale and crop the image</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">extension</span> <span class="nc">UIImage</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">/// Scales the image to a maximum dimension (width or height).</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">scaledDown</span><span class="p">(</span><span class="n">to</span> <span class="n">maxDimension</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">UIImage</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">aspectRatio</span><span class="p">:</span> <span class="n">CGFloat</span> <span class="p">=</span> <span class="bp">min</span><span class="p">(</span><span class="n">maxDimension</span> <span class="o">/</span> <span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">maxDimension</span> <span class="o">/</span> <span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">newSize</span> <span class="p">=</span> <span class="n">CGSize</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="n">size</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="n">aspectRatio</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">aspectRatio</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">renderer</span> <span class="p">=</span> <span class="n">UIGraphicsImageRenderer</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">newSize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">renderer</span><span class="p">.</span><span class="n">image</span> <span class="p">{</span> <span class="n">context</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">            <span class="kc">self</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">origin</span><span class="p">:</span> <span class="p">.</span><span class="n">zero</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">newSize</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">cropping</span><span class="p">(</span><span class="n">to</span> <span class="n">rect</span><span class="p">:</span> <span class="n">CGRect</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">UIImage</span><span class="p">?</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">guard</span> <span class="kd">let</span> <span class="nv">cgImage</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">cgImage</span><span class="p">?.</span><span class="n">cropping</span><span class="p">(</span><span class="n">to</span><span class="p">:</span> <span class="n">rect</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">nil</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">UIImage</span><span class="p">(</span><span class="n">cgImage</span><span class="p">:</span> <span class="n">cgImage</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="kc">self</span><span class="p">.</span><span class="n">scale</span><span class="p">,</span> <span class="n">orientation</span><span class="p">:</span> <span class="kc">self</span><span class="p">.</span><span class="n">imageOrientation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="5">
+<li>The <code>AddPassView</code> struct is the final step in Swift that presents a view for users to add a digital pass to their Apple Wallet using the <code>PKAddPassesViewController</code> from the PassKit framework.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">Foundation</span>
+</span></span><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">PassKit</span>
+</span></span><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">SwiftUI</span>
+</span></span><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">UIKit</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">struct</span> <span class="nc">AddPassView</span><span class="p">:</span> <span class="n">UIViewControllerRepresentable</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">typealias</span> <span class="n">UIViewControllerType</span> <span class="p">=</span> <span class="n">PKAddPassesViewController</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Environment</span> <span class="p">(</span><span class="err">\</span><span class="p">.</span><span class="n">presentationMode</span><span class="p">)</span> <span class="kd">var</span> <span class="nv">presentationMode</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="n">Binding</span> <span class="kd">var</span> <span class="nv">pass</span><span class="p">:</span> <span class="n">PKPass</span><span class="p">?</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">makeUIViewController</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">PKAddPassesViewController</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">passVC</span> <span class="p">=</span> <span class="n">PKAddPassesViewController</span><span class="p">(</span><span class="n">pass</span><span class="p">:</span> <span class="kc">self</span><span class="p">.</span><span class="n">pass</span><span class="p">!)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">passVC</span><span class="p">!</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">updateUIViewController</span><span class="p">(</span><span class="kc">_</span> <span class="n">uiViewController</span><span class="p">:</span> <span class="n">PKAddPassesViewController</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Nothing goes here</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Custom Colors in SwiftUI</title>
+      <link>http://localhost:1313/posts/customcolors/</link>
+      <pubDate>Thu, 02 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/customcolors/</guid>
+      <description>Creating custom colors in SwiftUI enhances the visual appeal of your app and maintains consistency across the user interface. Extending the Color struct in SwiftUI is an efficient way to define and manage custom colors. Follow this step-by-step guide to learn how:
+Organize Your Code: Begin by creating a new Swift file. Naming it CustomColors.swift would be a logical choice. This practice helps in keeping your codebase organized and clean.</description>
+      <content:encoded><![CDATA[<p>Creating custom colors in SwiftUI enhances the visual appeal of your app and maintains consistency across the user interface. Extending the <code>Color</code> struct in SwiftUI is an efficient way to define and manage custom colors. Follow this step-by-step guide to learn how:</p>
+<ol>
+<li>
+<p><strong>Organize Your Code</strong>:
+Begin by creating a new Swift file. Naming it <code>CustomColors.swift</code> would be a logical choice. This practice helps in keeping your codebase organized and clean.</p>
+</li>
+<li>
+<p><strong>Extend the <code>Color</code> Struct</strong>:
+Open your new Swift file, and start by importing the SwiftUI framework. Then, extend the <code>Color</code> struct to add your custom color definitions.</p>
+</li>
+<li>
+<p><strong>Define Custom Colors</strong>:
+Within the extension, define static properties for your custom colors. Each property should return an instance of <code>Color</code>.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">import</span> <span class="nc">SwiftUI</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">extension</span> <span class="nc">Color</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="kd">let</span> <span class="nv">customRed</span> <span class="p">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">red</span><span class="p">:</span> <span class="mf">0.862</span><span class="p">,</span> <span class="n">green</span><span class="p">:</span> <span class="mf">0.1176</span><span class="p">,</span> <span class="n">blue</span><span class="p">:</span> <span class="mf">0.2078</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="kd">let</span> <span class="nv">customHexBlue</span> <span class="p">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">hex</span><span class="p">:</span> <span class="s">&#34;#0000FF&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">init</span><span class="p">(</span><span class="n">hex</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">hex</span> <span class="p">=</span> <span class="n">hex</span><span class="p">.</span><span class="n">trimmingCharacters</span><span class="p">(</span><span class="k">in</span><span class="p">:</span> <span class="n">CharacterSet</span><span class="p">.</span><span class="n">alphanumerics</span><span class="p">.</span><span class="n">inverted</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nv">int</span><span class="p">:</span> <span class="nb">UInt64</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Scanner</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="n">hex</span><span class="p">).</span><span class="n">scanHexInt64</span><span class="p">(&amp;</span><span class="n">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nv">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">UInt64</span>
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="n">hex</span><span class="p">.</span><span class="bp">count</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">3</span><span class="p">:</span> <span class="c1">// RGB (12-bit)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="p">(</span><span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="mi">17</span><span class="p">,</span> <span class="p">(</span><span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span> <span class="o">&amp;</span> <span class="mh">0xF</span><span class="p">)</span> <span class="o">*</span> <span class="mi">17</span><span class="p">,</span> <span class="p">(</span><span class="n">int</span> <span class="o">&amp;</span> <span class="mh">0xF</span><span class="p">)</span> <span class="o">*</span> <span class="mi">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">6</span><span class="p">:</span> <span class="c1">// RGB (24-bit)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">,</span> <span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="n">int</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="mi">8</span><span class="p">:</span> <span class="c1">// ARGB (32-bit)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">,</span> <span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="n">int</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="n">int</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">sRGB</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">red</span><span class="p">:</span> <span class="nb">Double</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">green</span><span class="p">:</span> <span class="nb">Double</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">blue</span><span class="p">:</span> <span class="nb">Double</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">opacity</span><span class="p">:</span> <span class="nb">Double</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>In the code above, we&rsquo;ve defined two custom colors and an initializer for hex values:</p>
+<ul>
+<li><code>customRed</code>: A predefined custom red color.</li>
+<li><code>customHexBlue</code>: A custom blue color initialized using a hex value.</li>
+<li><code>init(hex:)</code>: An initializer to create a color from a hex string.</li>
+</ul>
+<ol start="4">
+<li><strong>Usage in Your SwiftUI Project</strong>:
+You can now use your custom colors as <code>Color.customRed</code>, <code>Color.customHexBlue</code>, and so on, throughout your SwiftUI project.</li>
+</ol>
+<h4 id="handling-hex-colors">Handling Hex Colors:</h4>
+<p>The <code>Color</code> extension includes an initializer for hex strings, allowing you to easily define colors using hex values. The initializer handles different formats including RGB, ARGB, and more, converting them into a <code>Color</code> object.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Simplifying View Alignment with `hAlign` and `vAlign`</title>
+      <link>http://localhost:1313/posts/halign_valign/</link>
+      <pubDate>Wed, 01 Nov 2023 20:51:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/halign_valign/</guid>
+      <description>When it comes to aligning views in SwiftUI, Apple has provided a powerful and flexible system. However, sometimes you might find yourself wishing for a simpler way to handle common alignment scenarios. In this article, we’ll explore how to extend the View protocol to include two new methods, hAlign(_:) and vAlign(_:), that make horizontal and vertical alignment more straightforward.
+Extending the View Protocol First, let’s take a look at the Swift code snippet that adds these methods:</description>
+      <content:encoded><![CDATA[<p>When it comes to aligning views in SwiftUI, Apple has provided a powerful and flexible system. However, sometimes you might find yourself wishing for a simpler way to handle common alignment scenarios. In this article, we’ll explore how to extend the <code>View</code> protocol to include two new methods, <code>hAlign(_:)</code> and <code>vAlign(_:)</code>, that make horizontal and vertical alignment more straightforward.</p>
+<h2 id="extending-the-view-protocol">Extending the View Protocol</h2>
+<p>First, let’s take a look at the Swift code snippet that adds these methods:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">extension</span> <span class="nc">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">hAlign</span><span class="p">(</span><span class="kc">_</span> <span class="n">alignment</span><span class="p">:</span> <span class="n">Alignment</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">maxWidth</span><span class="p">:</span> <span class="p">.</span><span class="n">infinity</span><span class="p">,</span> <span class="n">alignment</span><span class="p">:</span> <span class="n">alignment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">vAlign</span><span class="p">(</span><span class="kc">_</span> <span class="n">alignment</span><span class="p">:</span> <span class="n">Alignment</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">maxHeight</span><span class="p">:</span> <span class="p">.</span><span class="n">infinity</span><span class="p">,</span> <span class="n">alignment</span><span class="p">:</span> <span class="n">alignment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This extension adds two methods to the <code>View</code> protocol. Both methods return a modified view, and both take a single parameter of type <code>Alignment</code>.</p>
+<h3 id="understanding-halign_">Understanding <code>hAlign(_:)</code></h3>
+<p>The <code>hAlign(_:)</code> method is designed for horizontal alignment. It sets a frame around the view with a maximum width of infinity, which allows the view to stretch and fill the horizontal space of its parent container. The view is then aligned within this frame according to the <code>Alignment</code> value passed as a parameter.</p>
+<p>Here’s a breakdown of the components:</p>
+<ul>
+<li><code>maxWidth: .infinity</code>: This command allows the frame to expand horizontally to fill the available space.</li>
+<li><code>alignment: alignment</code>: This sets the horizontal alignment of the view within the frame.</li>
+</ul>
+<h3 id="grasping-valign_">Grasping <code>vAlign(_:)</code></h3>
+<p>The <code>vAlign(_:)</code> method works in much the same way, but for vertical alignment. It sets a frame with a maximum height of infinity, allowing the view to expand vertically. The vertical alignment is set according to the provided <code>Alignment</code> value.</p>
+<p>Components breakdown:</p>
+<ul>
+<li><code>maxHeight: .infinity</code>: Allows the frame to expand vertically.</li>
+<li><code>alignment: alignment</code>: Sets the vertical alignment.</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<p>Here’s how you might use these methods:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Hello, World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">hAlign</span><span class="p">(.</span><span class="n">leading</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">vAlign</span><span class="p">(.</span><span class="n">top</span><span class="p">)</span>
+</span></span></code></pre></div><p>In this example, a <code>Text</code> view displays “Hello, World!”. The <code>hAlign(_:)</code> method aligns the text to the leading edge of its container, while <code>vAlign(_:)</code> aligns it to the top.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>These methods provide a succinct way to align views within their parent containers, without the need for more complex layout containers or alignment guides. Whether you’re a seasoned SwiftUI developer or just getting started, these extensions can help streamline your code and make your layout intentions clear.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Font Awesome 6 in xCode &amp; SwiftUI</title>
+      <link>http://localhost:1313/posts/fontawesome/</link>
+      <pubDate>Thu, 02 Feb 2023 15:18:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/fontawesome/</guid>
+      <description>Introduction Welcome to my blog post on Font Awesome 6 in Xcode &amp;amp; SwiftUI.
+In this post, I&amp;rsquo;ll be sharing with you the steps on how to install Font Awesome icons in your Xcode project using SwiftUI.
+We&amp;rsquo;ll start by downloading the font files, adding the .otf files to the project, adding the fonts to the Info.plist file and creating a new struct for CustomFonts.
+Then, I&amp;rsquo;ll show you how to use Font Awesome icons in your Xcode project.</description>
+      <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Welcome to my blog post on <strong>Font Awesome 6 in Xcode &amp; SwiftUI</strong>.</p>
+<p>In this post, I&rsquo;ll be sharing with you the steps on how to install Font Awesome icons in your Xcode project using SwiftUI.</p>
+<p>We&rsquo;ll start by downloading the font files, adding the .otf files to the project, adding the fonts to the Info.plist file and creating a new struct for CustomFonts.</p>
+<p>Then, I&rsquo;ll show you how to use Font Awesome icons in your Xcode project.
+I&rsquo;ll take you through the process of searching for an icon on Font Awesome, copying the glyph, and adding the icon as text.</p>
+<p>To wrap things up, I&rsquo;ll also include a style preview to give you an idea of the various font styles available.
+Whether you&rsquo;re a beginner or an experienced iOS developer, this post will guide you through the process of adding Font Awesome icons to your Xcode project with ease.</p>
+<hr>
+<h2 id="how-to-add">How to add&hellip;</h2>
+<h3 id="1--download-the-font-files">1.  download the font files</h3>
+<p><a href="https://fontawesome.com/download">Download Font Awesome</a></p>
+<p>→ use the „<strong>For The Desktop</strong>“ Version</p>
+<p><img loading="lazy" src="/FA/screenshot_fa_download.png" alt=""  />
+</p>
+<h3 id="2-add-otf-files-to-the-project">2. add <em>.otf</em> files to the project</h3>
+<p><img loading="lazy" src="/FA/screenshot_fa_otfs.png" alt=""  />
+</p>
+<p>You will then be prompted with a dialog box.</p>
+<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Be sure to check your project name under “Add to targets.” <br>
+This will ensure that your fonts are compiled as assets at build time.</p></div>
+
+<p><img loading="lazy" src="/FA/screenshot_fa_addToTarget.png" alt=""  />
+</p>
+<h3 id="3-add-the-fonts-to-infoplist-file">3. add the fonts to „Info.plist“ file</h3>
+<p><img loading="lazy" src="/FA/screenshot_fa_infoPlist.png" alt=""  />
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">&lt;key&gt;UIAppFonts&lt;/key&gt;
+</span></span><span class="line"><span class="cl">	&lt;array&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Brands-Regular-400.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Duotone-Solid-900.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Light-300.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Regular-400.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Solid-900.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Thin-100.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Light-300.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Regular-400.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Solid-900.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Thin-100.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">	&lt;/array&gt;
+</span></span><span class="line"><span class="cl">&lt;/dict&gt;
+</span></span></code></pre></div><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>The fonts might not be named like these anymore.<br>
+Check real filenames!</p></div>
+
+<h3 id="4-create-a-new-struct-for-customfonts">4. create a new struct for <strong>CustomFonts</strong></h3>
+<ol>
+<li>create a new Swift File <em>(name: &ldquo;CustomFonts)</em></li>
+<li>add this code</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">extension</span> <span class="nc">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faPro</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Regular&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faProLight</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Light&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faProSolid</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Solid&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faProThin</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Thin&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faDuotone</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Duotone-Solid&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharp</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Regular&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharpLight</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Light&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharpSolid</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Solid&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faBrands</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Brands-Regular&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharpThin</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Thin&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><hr>
+<h2 id="how-to-use">How to use&hellip;</h2>
+<h3 id="1-go-to-font-awesome-and-search-for-an-icon">1. go to Font Awesome and search for an icon</h3>
+<p><a href="https://fontawesome.com/search">Search | Font Awesome</a></p>
+<h3 id="2-click-copy-glyph">2. click Copy Glyph</h3>
+<p><img loading="lazy" src="/FA/screenshot_fa_glyph.png" alt=""  />
+</p>
+<h3 id="3-add-the-icon-as-text">3. add the icon as text</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;&lt;icon&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">faProSolid</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;&lt;icon&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">faDuotone</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;&lt;icon&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">faSharpThin</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="style-preview">Style preview</h2>
+<p><img loading="lazy" src="/FA/style_prev.pdf" alt=""  />
+</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Universal Links in SwiftUI</title>
+      <link>http://localhost:1313/posts/universallinks/</link>
+      <pubDate>Thu, 02 Feb 2023 15:10:45 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/universallinks/</guid>
+      <description>Introduction Welcome to my blog post on Universal Links in SwiftUI!
+Universal links are a powerful feature that allows you to link directly to your app from an external source, such as a website. This means that you can take your users directly to specific content within your app, without having to go through the app store or the website. In this post, I will walk you through the process of setting up Universal Links in a SwiftUI app.</description>
+      <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Welcome to my blog post on <strong>Universal Links in SwiftUI</strong>!</p>
+<p>Universal links are a powerful feature that allows you to link directly to your app from an external source, such as a website. This means that you can take your users directly to specific content within your app, without having to go through the app store or the website. In this post, I will walk you through the process of setting up Universal Links in a SwiftUI app.</p>
+<p>First, we will look at how to find your Team ID and Bundle ID. You&rsquo;ll need these values to configure the association file and the app entitlements.</p>
+<p>Next, we&rsquo;ll create the association file and upload it to your website. This file contains information about the links that should be associated with your app, and it is a key part of the setup process.</p>
+<p>We&rsquo;ll then add the Associated Domains capability to your app, and add the appropriate domain entries to your entitlements. This is an important step that allows your app to receive the universal links and handle them appropriately.</p>
+<p>In the code logic section, I&rsquo;ll show you how to add code to your SwiftUI app that will handle the universal links when they are received. This is done using the <code>onOpenURL</code> method, which is called whenever your app is opened using a universal link.</p>
+<p>Finally, I&rsquo;ll show you how to enable the Universal Links testing-feature on an iPhone and how to verify that the links are set up correctly.</p>
+<p>By the end of this post, you will have a complete understanding of how Universal Links work in SwiftUI and will be able to set them up in your own apps. Let&rsquo;s get started!</p>
+<hr>
+<h2 id="how-to">How to</h2>
+<h3 id="1-get-team-id-and-bundle-id">1. get Team-ID and Bundle-ID</h3>
+<h4 id="team-id">Team ID:</h4>
+<ol>
+<li>go to <a href="https://developer.apple.com/account">https://developer.apple.com/account</a></li>
+<li>scroll to <strong>Membership details</strong> and find the <strong>Team ID</strong>
+<img loading="lazy" src="/universalLinks/screenshot_apple_team-id.png" alt="Team-ID"  />
+</li>
+</ol>
+<h4 id="bundle-id">Bundle ID:</h4>
+<ol>
+<li>open the Xcode project
+<ol>
+<li>click on the project name (left panel)</li>
+<li>click <strong>Signing &amp; Capabilities</strong></li>
+<li>find the <strong>Bundle ID</strong>
+<img loading="lazy" src="/universalLinks/screenshot_apple_bundle-id.png" alt=""  />
+</li>
+</ol>
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<h3 id="2-create-the-association-file">2. create the association file</h3>
+<ol>
+<li>create a file with the name: <code>apple-app-site-association</code>  (<strong>without extension!</strong>)</li>
+<li>this is an example of the file.
+also check: <a href="https://developer.apple.com/documentation/xcode/supporting-associated-domains">supporting associated domains</a></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;applinks&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;details&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="nt">&#34;appIDs&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;&lt;Team-ID&gt;.&lt;Bundle-ID&gt;&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">             <span class="nt">&#34;components&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">               <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                  <span class="nt">&#34;/&#34;</span><span class="p">:</span> <span class="s2">&#34;/app/?*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="p">}</span>
+</span></span><span class="line"><span class="cl">             <span class="p">]</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">       <span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="3-upload-it">3. upload it</h3>
+<ul>
+<li>upload this file to:
+<code>https://&lt;fully qualified domain&gt;/.well-known/apple-app-site-association</code></li>
+</ul>
+<!-- raw HTML omitted -->
+<h3 id="4-add-entitlement-to-your-app">4. add entitlement to your app</h3>
+<ol>
+<li>add the capability <strong>Associated Domains</strong>
+<img loading="lazy" src="/universalLinks/screenshot_xcode_capability.png" alt=""  />
+
+<img loading="lazy" src="/universalLinks/screenshot_xcode_ad.png" alt=""  />
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<ol start="2">
+<li>add <code>applinks:&lt;fully qualified domain&gt;?mode=developer</code> for the <strong>development-mode</strong>
+or <code>applinks:&lt;fully qualified domain&gt;</code> for productive mode
+<img loading="lazy" src="/universalLinks/screenshot_xcode_ad_domain.png" alt=""  />
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<h3 id="5-add-code-logic-to-the-app">5. add code-logic to the app</h3>
+<p>This allows to register a handler that will be called whenever your application is opened using a universal link, regardless of its state (foreground, background, force-quit).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="p">@</span><span class="n">main</span>
+</span></span><span class="line"><span class="cl"><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">App</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">Scene</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">WindowGroup</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">VStack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">Text</span><span class="p">(</span><span class="s">&#34;Hello world&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">onOpenURL</span> <span class="p">{</span> <span class="n">url</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// handle universal links</span>
+</span></span><span class="line"><span class="cl">			<span class="bp">print</span><span class="p">(</span><span class="s">&#34;url: </span><span class="si">\(</span><span class="n">url</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h3 id="6-enable-on-iphone">6. enable on iPhone</h3>
+<ol>
+<li>go to <strong>Settings</strong></li>
+</ol>
+
+
+<img src="/universalLinks/icon_settings.png" width="100">
+
+<ol start="2">
+<li>go to <strong>Developer</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_developer.jpeg" width="300">
+
+<ol start="3">
+<li>enable <strong>Associated Domains Development</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_ul_add.jpeg" width="300">
+
+<ol start="4">
+<li><strong>reboot</strong> your phone</li>
+</ol>
+<h3 id="7-install-app">7. install App</h3>
+<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>If the app is already on your phone:</p>
+<ol>
+<li>delete the app</li>
+<li>re-install the app</li>
+</ol></div>
+
+<!-- raw HTML omitted -->
+<h3 id="8-check-the-association">8. check the association</h3>
+<ol>
+<li>go to <strong>Settings</strong></li>
+</ol>
+
+
+<img src="/universalLinks/icon_settings.png" width="100">
+
+<ol start="2">
+<li>go to <strong>Developer</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_developer.jpeg" width="300">
+
+<ol start="3">
+<li>tap <strong>Diagnostics</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_ul_diagnostics.jpeg" width="300">
+
+<ol start="4">
+<li>enter the URL
+<em>I&rsquo;m using /app/test because I added this in my file for the server:</em>
+<code>&quot;/&quot;: &quot;/app/?*&quot;</code></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_iOS_ul_diagnostics.png" width="300">
+
+<ol start="5">
+<li>see if it worked</li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_iOS_ul_check.png" width="300">
+
+<h3 id="9-test">9. test</h3>
+<ol>
+<li>if you try to open an URL in Safari (like specified above)<br>
+e.g. <code>https://&lt;fully qualified domain&gt;/app/something</code>
+a banner should appear:</li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_app_banner.png" width="300">
+
+<ol start="2">
+<li>if you save the URL somewhere (e.g. the notes app) and tap it afterwards, the app should open.</li>
+</ol>
+<h3 id="10-troubleshooting">10. troubleshooting</h3>
+<ol>
+<li>start the <strong>Console</strong> app on your Mac</li>
+</ol>
+
+
+<img src="/universalLinks/icon_console.png" width="100">
+
+<ol start="2">
+<li>select your device and click <strong>start streaming</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_console_start.png" width="300">
+
+<ol start="3">
+<li>set the search to <code>swcd</code></li>
+</ol>
+<p>These logs provide some activities related to Universal Links and other associated domain features. We can see the system is downloading the AASA file or not if it errors it will display here.</p>
+<p><img loading="lazy" src="/universalLinks/screenshot_console_log.png" alt=""  />
+</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

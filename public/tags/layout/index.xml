@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Layout on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/tags/layout/</link>
+    <description>Recent content in Layout on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Nov 2023 20:51:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/layout/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simplifying View Alignment with `hAlign` and `vAlign`</title>
+      <link>http://localhost:1313/posts/halign_valign/</link>
+      <pubDate>Wed, 01 Nov 2023 20:51:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/halign_valign/</guid>
+      <description>When it comes to aligning views in SwiftUI, Apple has provided a powerful and flexible system. However, sometimes you might find yourself wishing for a simpler way to handle common alignment scenarios. In this article, we’ll explore how to extend the View protocol to include two new methods, hAlign(_:) and vAlign(_:), that make horizontal and vertical alignment more straightforward.
+Extending the View Protocol First, let’s take a look at the Swift code snippet that adds these methods:</description>
+      <content:encoded><![CDATA[<p>When it comes to aligning views in SwiftUI, Apple has provided a powerful and flexible system. However, sometimes you might find yourself wishing for a simpler way to handle common alignment scenarios. In this article, we’ll explore how to extend the <code>View</code> protocol to include two new methods, <code>hAlign(_:)</code> and <code>vAlign(_:)</code>, that make horizontal and vertical alignment more straightforward.</p>
+<h2 id="extending-the-view-protocol">Extending the View Protocol</h2>
+<p>First, let’s take a look at the Swift code snippet that adds these methods:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">extension</span> <span class="nc">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">hAlign</span><span class="p">(</span><span class="kc">_</span> <span class="n">alignment</span><span class="p">:</span> <span class="n">Alignment</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">maxWidth</span><span class="p">:</span> <span class="p">.</span><span class="n">infinity</span><span class="p">,</span> <span class="n">alignment</span><span class="p">:</span> <span class="n">alignment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">vAlign</span><span class="p">(</span><span class="kc">_</span> <span class="n">alignment</span><span class="p">:</span> <span class="n">Alignment</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">maxHeight</span><span class="p">:</span> <span class="p">.</span><span class="n">infinity</span><span class="p">,</span> <span class="n">alignment</span><span class="p">:</span> <span class="n">alignment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This extension adds two methods to the <code>View</code> protocol. Both methods return a modified view, and both take a single parameter of type <code>Alignment</code>.</p>
+<h3 id="understanding-halign_">Understanding <code>hAlign(_:)</code></h3>
+<p>The <code>hAlign(_:)</code> method is designed for horizontal alignment. It sets a frame around the view with a maximum width of infinity, which allows the view to stretch and fill the horizontal space of its parent container. The view is then aligned within this frame according to the <code>Alignment</code> value passed as a parameter.</p>
+<p>Here’s a breakdown of the components:</p>
+<ul>
+<li><code>maxWidth: .infinity</code>: This command allows the frame to expand horizontally to fill the available space.</li>
+<li><code>alignment: alignment</code>: This sets the horizontal alignment of the view within the frame.</li>
+</ul>
+<h3 id="grasping-valign_">Grasping <code>vAlign(_:)</code></h3>
+<p>The <code>vAlign(_:)</code> method works in much the same way, but for vertical alignment. It sets a frame with a maximum height of infinity, allowing the view to expand vertically. The vertical alignment is set according to the provided <code>Alignment</code> value.</p>
+<p>Components breakdown:</p>
+<ul>
+<li><code>maxHeight: .infinity</code>: Allows the frame to expand vertically.</li>
+<li><code>alignment: alignment</code>: Sets the vertical alignment.</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<p>Here’s how you might use these methods:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Hello, World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">hAlign</span><span class="p">(.</span><span class="n">leading</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">vAlign</span><span class="p">(.</span><span class="n">top</span><span class="p">)</span>
+</span></span></code></pre></div><p>In this example, a <code>Text</code> view displays “Hello, World!”. The <code>hAlign(_:)</code> method aligns the text to the leading edge of its container, while <code>vAlign(_:)</code> aligns it to the top.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>These methods provide a succinct way to align views within their parent containers, without the need for more complex layout containers or alignment guides. Whether you’re a seasoned SwiftUI developer or just getting started, these extensions can help streamline your code and make your layout intentions clear.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

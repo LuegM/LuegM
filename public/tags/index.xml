@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Mar 2024 12:00:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Collaboration</title>
+      <link>http://localhost:1313/tags/collaboration/</link>
+      <pubDate>Mon, 18 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/collaboration/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>http://localhost:1313/tags/documentation/</link>
+      <pubDate>Mon, 18 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/documentation/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>http://localhost:1313/tags/github/</link>
+      <pubDate>Mon, 18 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/github/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Obsidian</title>
+      <link>http://localhost:1313/tags/obsidian/</link>
+      <pubDate>Mon, 18 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/obsidian/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Teams</title>
+      <link>http://localhost:1313/tags/teams/</link>
+      <pubDate>Mon, 18 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/teams/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Captive Portal</title>
+      <link>http://localhost:1313/tags/captive-portal/</link>
+      <pubDate>Sun, 10 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/captive-portal/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>ESP32</title>
+      <link>http://localhost:1313/tags/esp32/</link>
+      <pubDate>Sun, 10 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/esp32/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>IoT Projects</title>
+      <link>http://localhost:1313/tags/iot-projects/</link>
+      <pubDate>Sun, 10 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/iot-projects/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Networking</title>
+      <link>http://localhost:1313/tags/networking/</link>
+      <pubDate>Sun, 10 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/networking/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>PlatformIO</title>
+      <link>http://localhost:1313/tags/platformio/</link>
+      <pubDate>Sun, 10 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/platformio/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>WiFiManager</title>
+      <link>http://localhost:1313/tags/wifimanager/</link>
+      <pubDate>Sun, 10 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/wifimanager/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Apple Wallet</title>
+      <link>http://localhost:1313/tags/apple-wallet/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/apple-wallet/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/tags/javascript/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/javascript/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Pkpass</title>
+      <link>http://localhost:1313/tags/pkpass/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/pkpass/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>SwiftUI</title>
+      <link>http://localhost:1313/tags/swiftui/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/swiftui/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>WalletPass</title>
+      <link>http://localhost:1313/tags/walletpass/</link>
+      <pubDate>Sun, 05 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/walletpass/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Color Extension</title>
+      <link>http://localhost:1313/tags/color-extension/</link>
+      <pubDate>Thu, 02 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/color-extension/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Custom Colors</title>
+      <link>http://localhost:1313/tags/custom-colors/</link>
+      <pubDate>Thu, 02 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/custom-colors/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Hex Colors</title>
+      <link>http://localhost:1313/tags/hex-colors/</link>
+      <pubDate>Thu, 02 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/hex-colors/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Swift Programming</title>
+      <link>http://localhost:1313/tags/swift-programming/</link>
+      <pubDate>Thu, 02 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/swift-programming/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>UI Design</title>
+      <link>http://localhost:1313/tags/ui-design/</link>
+      <pubDate>Thu, 02 Nov 2023 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/ui-design/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>IOS Development</title>
+      <link>http://localhost:1313/tags/ios-development/</link>
+      <pubDate>Wed, 01 Nov 2023 20:51:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/ios-development/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Layout</title>
+      <link>http://localhost:1313/tags/layout/</link>
+      <pubDate>Wed, 01 Nov 2023 20:51:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/layout/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Swift Extension</title>
+      <link>http://localhost:1313/tags/swift-extension/</link>
+      <pubDate>Wed, 01 Nov 2023 20:51:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/swift-extension/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>User Interface</title>
+      <link>http://localhost:1313/tags/user-interface/</link>
+      <pubDate>Wed, 01 Nov 2023 20:51:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/user-interface/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>View Alignment</title>
+      <link>http://localhost:1313/tags/view-alignment/</link>
+      <pubDate>Wed, 01 Nov 2023 20:51:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/view-alignment/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Android</title>
+      <link>http://localhost:1313/tags/android/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/android/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Apple</title>
+      <link>http://localhost:1313/tags/apple/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/apple/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Google</title>
+      <link>http://localhost:1313/tags/google/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/google/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>IOS</title>
+      <link>http://localhost:1313/tags/ios/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/ios/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Microsoft</title>
+      <link>http://localhost:1313/tags/microsoft/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/microsoft/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Passkeys</title>
+      <link>http://localhost:1313/tags/passkeys/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/passkeys/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Passwords</title>
+      <link>http://localhost:1313/tags/passwords/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/passwords/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>http://localhost:1313/tags/security/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/security/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>SecurityKeys</title>
+      <link>http://localhost:1313/tags/securitykeys/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/securitykeys/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>http://localhost:1313/tags/swift/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/swift/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Yubico</title>
+      <link>http://localhost:1313/tags/yubico/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/yubico/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>HowTo</title>
+      <link>http://localhost:1313/tags/howto/</link>
+      <pubDate>Sun, 12 Feb 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/howto/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Semantic</title>
+      <link>http://localhost:1313/tags/semantic/</link>
+      <pubDate>Sun, 12 Feb 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/semantic/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Version</title>
+      <link>http://localhost:1313/tags/version/</link>
+      <pubDate>Sun, 12 Feb 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/version/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Versioning</title>
+      <link>http://localhost:1313/tags/versioning/</link>
+      <pubDate>Sun, 12 Feb 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/versioning/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Font Awesome</title>
+      <link>http://localhost:1313/tags/font-awesome/</link>
+      <pubDate>Thu, 02 Feb 2023 15:18:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/font-awesome/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Icon</title>
+      <link>http://localhost:1313/tags/icon/</link>
+      <pubDate>Thu, 02 Feb 2023 15:18:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/icon/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>IPadOS</title>
+      <link>http://localhost:1313/tags/ipados/</link>
+      <pubDate>Thu, 02 Feb 2023 15:18:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/ipados/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Xcode</title>
+      <link>http://localhost:1313/tags/xcode/</link>
+      <pubDate>Thu, 02 Feb 2023 15:18:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/xcode/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Universal Links</title>
+      <link>http://localhost:1313/tags/universal-links/</link>
+      <pubDate>Thu, 02 Feb 2023 15:10:45 +0100</pubDate>
+      
+      <guid>http://localhost:1313/tags/universal-links/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

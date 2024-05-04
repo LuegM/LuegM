@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IOS on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/tags/ios/</link>
+    <description>Recent content in IOS on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 May 2023 10:11:20 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Passkeys</title>
+      <link>http://localhost:1313/posts/passkeys/</link>
+      <pubDate>Fri, 12 May 2023 10:11:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/passkeys/</guid>
+      <description>Welcome to this comprehensive step-by-step tutorial designed to guide you through the process of setting up a backend environment for a passkeys using Docker Desktop. It will also guide you through the process of obtaining an Apple Developer Team-ID, a unique identifier required to manage your team on Apple&amp;rsquo;s Developer platform.
+By the end of this tutorial, you&amp;rsquo;ll have a fully functional backend setup for your passkey workshop, and you&amp;rsquo;ll be capable of managing and running your applications more effectively.</description>
+      <content:encoded><![CDATA[<p>Welcome to this comprehensive step-by-step tutorial designed to guide you through the process of setting up a backend environment for a passkeys using Docker Desktop.
+It will also guide you through the process of obtaining an Apple Developer Team-ID, a unique identifier required to manage your team on Apple&rsquo;s Developer platform.</p>
+<p>By the end of this tutorial, you&rsquo;ll have a fully functional backend setup for your passkey workshop, and you&rsquo;ll be capable of managing and running your applications more effectively.</p>
+<p>Happy learning!</p>
+<h3 id="1-install-docker-desktop">1. install Docker Desktop</h3>
+<p><a href="https://www.docker.com/products/docker-desktop/">https://www.docker.com/products/docker-desktop/</a></p>
+<h3 id="2-install-git">2. install Git</h3>
+<p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<h3 id="3-get-apple-developer-team-id-optional">3. get Apple Developer Team-ID (Optional)</h3>
+<p><a href="https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/">https://developer.apple.com/help/account/manage-your-team/locate-your-team-id/</a></p>
+<!-- raw HTML omitted -->
+<h3 id="4-setup-the-backend">4. setup the backend</h3>
+<h4 id="automated--script-macos-and-linux">automated / script (macOS and Linux):</h4>
+<p><code>!! for windows scroll down</code></p>
+<ol>
+<li>Clone the repository</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/YubicoLabs/passkey-workshop
+</span></span></code></pre></div><ol start="2">
+<li>Navigate to the <em>deploy</em> folder</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> passkey-workshop/deploy
+</span></span></code></pre></div><ol start="3">
+<li>run the <em>mobile.sh</em> script</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./cloudflared.sh
+</span></span></code></pre></div><ol start="4">
+<li>edit <em>.env</em> file
+<ol>
+<li>open the file</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nano .env
+</span></span></code></pre></div><ol start="2">
+<li>make changes
+<img loading="lazy" src="./images/pk_terminal_teamID.png" alt="TeamID"  />
+
+<ol>
+<li>if you have a Team-ID -&gt; add it here</li>
+<li>if you don&rsquo;t have a Team-ID -&gt; change one character</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>run the <em>mobile.sh</em> script again</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./cloudflared.sh
+</span></span></code></pre></div><ol start="6">
+<li>copy the url from the shell
+<img loading="lazy" src="./images/pk_terminal_cf-url.png" alt="CloudFlareURL"  />
+</li>
+<li>open the url in a browser <code>(use https://)</code></li>
+<li>go to the <em>TestPanel</em></li>
+<li>you can now register and sign in with passkeys
+<ol>
+<li>note: only the TestPanel is working!</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h4 id="manual-windows">manual (windows):</h4>
+<ol start="0">
+<li>start <strong>Powershell</strong></li>
+<li>Clone the repository</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/YubicoLabs/passkey-workshop
+</span></span></code></pre></div><ol start="2">
+<li>Navigate to the <em>deploy</em> folder</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> passkey-workshop/deploy
+</span></span></code></pre></div><ol start="3">
+<li>Copy the environment file</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp cloudflared.env .env
+</span></span></code></pre></div><ol start="4">
+<li>Copy the frontend code</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp -r ../examples/clients/web/react/passkey-client/ react-app/source
+</span></span></code></pre></div><ol start="5">
+<li><em>(optional)</em> Edit the <em>apple-app-site-association</em> file with your Apple TeamID.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nano react-app/source/public/.well-known/apple-app-site-association
+</span></span></code></pre></div><pre tabindex="0"><code>{
+    &#34;webcredentials&#34;: {
+      &#34;apps&#34;: [
+        &#34;UVWXYZ1234.fyi.passkey.pawskeyUVWXYZ1234&#34;
+      ]
+    }
+}
+</code></pre><ol start="6">
+<li>Build the <em>passkey-client</em></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker compose build passkey-client
+</span></span></code></pre></div><ol start="7">
+<li>Copy the backend code</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp -r ../examples/relyingParties/java-spring/ java-app/source/
+</span></span></code></pre></div><ol start="8">
+<li>Start your tunnel</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker compose --profile tunnel up -d
+</span></span></code></pre></div><ol start="9">
+<li>Lookup the tunnel URL in cloudflared&rsquo;s output, either in Docker Desktop or using</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker compose --profile tunnel logs
+</span></span></code></pre></div><pre tabindex="0"><code>*example log:*
+INF +--------------------------------------------------------------------------------------+
+INF | Your quick Tunnel has been created! Visit it at (it may take some time to be reachable): |
+INF | https://your-proxied-tunnel-endpoint.trycloudflare.com                                                       |
+INF +--------------------------------------------------------------------------------------+
+</code></pre><ol start="10">
+<li>Edit your .env file and set the values of <code>RP_ID</code>, <code>RP_ALLOWED_ORIGINS</code>, and <code>RP_ALLOWED_CROSS_ORIGINS</code> to your assigned hostname</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RP_ID</span><span class="o">=</span>replace-with-your-hostname.trycloudflare.com
+</span></span><span class="line"><span class="cl"><span class="nv">RP_ALLOWED_ORIGINS</span><span class="o">=</span>replace-with-your-hostname.trycloudflare.com
+</span></span><span class="line"><span class="cl"><span class="nv">RP_ALLOWED_CROSS_ORIGINS</span><span class="o">=</span>replace-with-your-hostname.trycloudflare.com
+</span></span></code></pre></div><p>Also edit the URL for your RP backend API so it includes your tunnel hostname</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">REACT_APP_API</span><span class="o">=</span>https://replace-with-your-hostname.trycloudflare.com/v1
+</span></span></code></pre></div><ol start="11">
+<li>run</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker compose --profile mobile up -d
+</span></span></code></pre></div><ol start="12">
+<li>open the url in a browser</li>
+<li>go to the <em>TestPanel</em></li>
+<li>you can now register and sign in with passkeys
+<ol>
+<li>note: only the TestPanel is working!</li>
+</ol>
+</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Font Awesome 6 in xCode &amp; SwiftUI</title>
+      <link>http://localhost:1313/posts/fontawesome/</link>
+      <pubDate>Thu, 02 Feb 2023 15:18:20 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/fontawesome/</guid>
+      <description>Introduction Welcome to my blog post on Font Awesome 6 in Xcode &amp;amp; SwiftUI.
+In this post, I&amp;rsquo;ll be sharing with you the steps on how to install Font Awesome icons in your Xcode project using SwiftUI.
+We&amp;rsquo;ll start by downloading the font files, adding the .otf files to the project, adding the fonts to the Info.plist file and creating a new struct for CustomFonts.
+Then, I&amp;rsquo;ll show you how to use Font Awesome icons in your Xcode project.</description>
+      <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Welcome to my blog post on <strong>Font Awesome 6 in Xcode &amp; SwiftUI</strong>.</p>
+<p>In this post, I&rsquo;ll be sharing with you the steps on how to install Font Awesome icons in your Xcode project using SwiftUI.</p>
+<p>We&rsquo;ll start by downloading the font files, adding the .otf files to the project, adding the fonts to the Info.plist file and creating a new struct for CustomFonts.</p>
+<p>Then, I&rsquo;ll show you how to use Font Awesome icons in your Xcode project.
+I&rsquo;ll take you through the process of searching for an icon on Font Awesome, copying the glyph, and adding the icon as text.</p>
+<p>To wrap things up, I&rsquo;ll also include a style preview to give you an idea of the various font styles available.
+Whether you&rsquo;re a beginner or an experienced iOS developer, this post will guide you through the process of adding Font Awesome icons to your Xcode project with ease.</p>
+<hr>
+<h2 id="how-to-add">How to add&hellip;</h2>
+<h3 id="1--download-the-font-files">1.  download the font files</h3>
+<p><a href="https://fontawesome.com/download">Download Font Awesome</a></p>
+<p>→ use the „<strong>For The Desktop</strong>“ Version</p>
+<p><img loading="lazy" src="/FA/screenshot_fa_download.png" alt=""  />
+</p>
+<h3 id="2-add-otf-files-to-the-project">2. add <em>.otf</em> files to the project</h3>
+<p><img loading="lazy" src="/FA/screenshot_fa_otfs.png" alt=""  />
+</p>
+<p>You will then be prompted with a dialog box.</p>
+<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Be sure to check your project name under “Add to targets.” <br>
+This will ensure that your fonts are compiled as assets at build time.</p></div>
+
+<p><img loading="lazy" src="/FA/screenshot_fa_addToTarget.png" alt=""  />
+</p>
+<h3 id="3-add-the-fonts-to-infoplist-file">3. add the fonts to „Info.plist“ file</h3>
+<p><img loading="lazy" src="/FA/screenshot_fa_infoPlist.png" alt=""  />
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">&lt;key&gt;UIAppFonts&lt;/key&gt;
+</span></span><span class="line"><span class="cl">	&lt;array&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Brands-Regular-400.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Duotone-Solid-900.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Light-300.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Regular-400.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Solid-900.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Pro-Thin-100.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Light-300.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Regular-400.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Solid-900.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">		&lt;string&gt;Font Awesome 6 Sharp-Thin-100.otf&lt;/string&gt;
+</span></span><span class="line"><span class="cl">	&lt;/array&gt;
+</span></span><span class="line"><span class="cl">&lt;/dict&gt;
+</span></span></code></pre></div><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>The fonts might not be named like these anymore.<br>
+Check real filenames!</p></div>
+
+<h3 id="4-create-a-new-struct-for-customfonts">4. create a new struct for <strong>CustomFonts</strong></h3>
+<ol>
+<li>create a new Swift File <em>(name: &ldquo;CustomFonts)</em></li>
+<li>add this code</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="kd">extension</span> <span class="nc">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faPro</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Regular&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faProLight</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Light&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faProSolid</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Solid&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faProThin</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Pro-Thin&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faDuotone</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Duotone-Solid&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharp</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Regular&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharpLight</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Light&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharpSolid</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Solid&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faBrands</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Brands-Regular&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">func</span> <span class="nf">faSharpThin</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kc">self</span><span class="p">.</span><span class="n">font</span><span class="p">(.</span><span class="n">custom</span><span class="p">(</span><span class="s">&#34;FontAwesome6Sharp-Thin&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">size</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><hr>
+<h2 id="how-to-use">How to use&hellip;</h2>
+<h3 id="1-go-to-font-awesome-and-search-for-an-icon">1. go to Font Awesome and search for an icon</h3>
+<p><a href="https://fontawesome.com/search">Search | Font Awesome</a></p>
+<h3 id="2-click-copy-glyph">2. click Copy Glyph</h3>
+<p><img loading="lazy" src="/FA/screenshot_fa_glyph.png" alt=""  />
+</p>
+<h3 id="3-add-the-icon-as-text">3. add the icon as text</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;&lt;icon&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">faProSolid</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;&lt;icon&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">faDuotone</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Text</span><span class="p">(</span><span class="s">&#34;&lt;icon&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="n">faSharpThin</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="style-preview">Style preview</h2>
+<p><img loading="lazy" src="/FA/style_prev.pdf" alt=""  />
+</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Universal Links in SwiftUI</title>
+      <link>http://localhost:1313/posts/universallinks/</link>
+      <pubDate>Thu, 02 Feb 2023 15:10:45 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/universallinks/</guid>
+      <description>Introduction Welcome to my blog post on Universal Links in SwiftUI!
+Universal links are a powerful feature that allows you to link directly to your app from an external source, such as a website. This means that you can take your users directly to specific content within your app, without having to go through the app store or the website. In this post, I will walk you through the process of setting up Universal Links in a SwiftUI app.</description>
+      <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Welcome to my blog post on <strong>Universal Links in SwiftUI</strong>!</p>
+<p>Universal links are a powerful feature that allows you to link directly to your app from an external source, such as a website. This means that you can take your users directly to specific content within your app, without having to go through the app store or the website. In this post, I will walk you through the process of setting up Universal Links in a SwiftUI app.</p>
+<p>First, we will look at how to find your Team ID and Bundle ID. You&rsquo;ll need these values to configure the association file and the app entitlements.</p>
+<p>Next, we&rsquo;ll create the association file and upload it to your website. This file contains information about the links that should be associated with your app, and it is a key part of the setup process.</p>
+<p>We&rsquo;ll then add the Associated Domains capability to your app, and add the appropriate domain entries to your entitlements. This is an important step that allows your app to receive the universal links and handle them appropriately.</p>
+<p>In the code logic section, I&rsquo;ll show you how to add code to your SwiftUI app that will handle the universal links when they are received. This is done using the <code>onOpenURL</code> method, which is called whenever your app is opened using a universal link.</p>
+<p>Finally, I&rsquo;ll show you how to enable the Universal Links testing-feature on an iPhone and how to verify that the links are set up correctly.</p>
+<p>By the end of this post, you will have a complete understanding of how Universal Links work in SwiftUI and will be able to set them up in your own apps. Let&rsquo;s get started!</p>
+<hr>
+<h2 id="how-to">How to</h2>
+<h3 id="1-get-team-id-and-bundle-id">1. get Team-ID and Bundle-ID</h3>
+<h4 id="team-id">Team ID:</h4>
+<ol>
+<li>go to <a href="https://developer.apple.com/account">https://developer.apple.com/account</a></li>
+<li>scroll to <strong>Membership details</strong> and find the <strong>Team ID</strong>
+<img loading="lazy" src="/universalLinks/screenshot_apple_team-id.png" alt="Team-ID"  />
+</li>
+</ol>
+<h4 id="bundle-id">Bundle ID:</h4>
+<ol>
+<li>open the Xcode project
+<ol>
+<li>click on the project name (left panel)</li>
+<li>click <strong>Signing &amp; Capabilities</strong></li>
+<li>find the <strong>Bundle ID</strong>
+<img loading="lazy" src="/universalLinks/screenshot_apple_bundle-id.png" alt=""  />
+</li>
+</ol>
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<h3 id="2-create-the-association-file">2. create the association file</h3>
+<ol>
+<li>create a file with the name: <code>apple-app-site-association</code>  (<strong>without extension!</strong>)</li>
+<li>this is an example of the file.
+also check: <a href="https://developer.apple.com/documentation/xcode/supporting-associated-domains">supporting associated domains</a></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;applinks&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;details&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="nt">&#34;appIDs&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;&lt;Team-ID&gt;.&lt;Bundle-ID&gt;&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">             <span class="nt">&#34;components&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">               <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                  <span class="nt">&#34;/&#34;</span><span class="p">:</span> <span class="s2">&#34;/app/?*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="p">}</span>
+</span></span><span class="line"><span class="cl">             <span class="p">]</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">       <span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="3-upload-it">3. upload it</h3>
+<ul>
+<li>upload this file to:
+<code>https://&lt;fully qualified domain&gt;/.well-known/apple-app-site-association</code></li>
+</ul>
+<!-- raw HTML omitted -->
+<h3 id="4-add-entitlement-to-your-app">4. add entitlement to your app</h3>
+<ol>
+<li>add the capability <strong>Associated Domains</strong>
+<img loading="lazy" src="/universalLinks/screenshot_xcode_capability.png" alt=""  />
+
+<img loading="lazy" src="/universalLinks/screenshot_xcode_ad.png" alt=""  />
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<ol start="2">
+<li>add <code>applinks:&lt;fully qualified domain&gt;?mode=developer</code> for the <strong>development-mode</strong>
+or <code>applinks:&lt;fully qualified domain&gt;</code> for productive mode
+<img loading="lazy" src="/universalLinks/screenshot_xcode_ad_domain.png" alt=""  />
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<h3 id="5-add-code-logic-to-the-app">5. add code-logic to the app</h3>
+<p>This allows to register a handler that will be called whenever your application is opened using a universal link, regardless of its state (foreground, background, force-quit).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="line"><span class="cl"><span class="p">@</span><span class="n">main</span>
+</span></span><span class="line"><span class="cl"><span class="kd">struct</span> <span class="nc">ContentView</span><span class="p">:</span> <span class="n">App</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">Scene</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">WindowGroup</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">VStack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">Text</span><span class="p">(</span><span class="s">&#34;Hello world&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">onOpenURL</span> <span class="p">{</span> <span class="n">url</span> <span class="k">in</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// handle universal links</span>
+</span></span><span class="line"><span class="cl">			<span class="bp">print</span><span class="p">(</span><span class="s">&#34;url: </span><span class="si">\(</span><span class="n">url</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h3 id="6-enable-on-iphone">6. enable on iPhone</h3>
+<ol>
+<li>go to <strong>Settings</strong></li>
+</ol>
+
+
+<img src="/universalLinks/icon_settings.png" width="100">
+
+<ol start="2">
+<li>go to <strong>Developer</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_developer.jpeg" width="300">
+
+<ol start="3">
+<li>enable <strong>Associated Domains Development</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_ul_add.jpeg" width="300">
+
+<ol start="4">
+<li><strong>reboot</strong> your phone</li>
+</ol>
+<h3 id="7-install-app">7. install App</h3>
+<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>If the app is already on your phone:</p>
+<ol>
+<li>delete the app</li>
+<li>re-install the app</li>
+</ol></div>
+
+<!-- raw HTML omitted -->
+<h3 id="8-check-the-association">8. check the association</h3>
+<ol>
+<li>go to <strong>Settings</strong></li>
+</ol>
+
+
+<img src="/universalLinks/icon_settings.png" width="100">
+
+<ol start="2">
+<li>go to <strong>Developer</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_developer.jpeg" width="300">
+
+<ol start="3">
+<li>tap <strong>Diagnostics</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_ul_diagnostics.jpeg" width="300">
+
+<ol start="4">
+<li>enter the URL
+<em>I&rsquo;m using /app/test because I added this in my file for the server:</em>
+<code>&quot;/&quot;: &quot;/app/?*&quot;</code></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_iOS_ul_diagnostics.png" width="300">
+
+<ol start="5">
+<li>see if it worked</li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_iOS_ul_check.png" width="300">
+
+<h3 id="9-test">9. test</h3>
+<ol>
+<li>if you try to open an URL in Safari (like specified above)<br>
+e.g. <code>https://&lt;fully qualified domain&gt;/app/something</code>
+a banner should appear:</li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_app_banner.png" width="300">
+
+<ol start="2">
+<li>if you save the URL somewhere (e.g. the notes app) and tap it afterwards, the app should open.</li>
+</ol>
+<h3 id="10-troubleshooting">10. troubleshooting</h3>
+<ol>
+<li>start the <strong>Console</strong> app on your Mac</li>
+</ol>
+
+
+<img src="/universalLinks/icon_console.png" width="100">
+
+<ol start="2">
+<li>select your device and click <strong>start streaming</strong></li>
+</ol>
+
+
+<img src="/universalLinks/screenshot_console_start.png" width="300">
+
+<ol start="3">
+<li>set the search to <code>swcd</code></li>
+</ol>
+<p>These logs provide some activities related to Universal Links and other associated domain features. We can see the system is downloading the AASA file or not if it errors it will display here.</p>
+<p><img loading="lazy" src="/universalLinks/screenshot_console_log.png" alt=""  />
+</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

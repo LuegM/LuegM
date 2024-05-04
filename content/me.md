@@ -69,4 +69,4 @@ Michael Luegmayer
 
 #### Professional Experience
 * Internship at AhoiKapptn!
-* App Development for Samariterbund Österreich - Gruppe Lin
+* App Development for Samariterbund Österreich - Gruppe Linz

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Documentation on LuegM 👨🏻‍💻</title>
+    <link>http://localhost:1313/tags/documentation/</link>
+    <description>Recent content in Documentation on LuegM 👨🏻‍💻</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Mar 2024 12:00:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leveraging Obsidian with GitHub for Collaborative Documentation</title>
+      <link>http://localhost:1313/posts/obsidiangit/</link>
+      <pubDate>Mon, 18 Mar 2024 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/obsidiangit/</guid>
+      <description>Using Obsidian in conjunction with GitHub offers a powerful solution for teams to create, manage, and maintain their documentation collaboratively. This post guides you through setting up an Obsidian vault with a GitHub repository to enable seamless documentation workflow for your team.
+Setting Up Your GitHub Repository Create a New GitHub Repository: Start by creating a new repository on GitHub. Include an `.md` (Markdown) file to serve as the starting point of your documentation.</description>
+      <content:encoded><![CDATA[<p>Using Obsidian in conjunction with GitHub offers a powerful solution for teams to create, manage, and maintain their documentation collaboratively. This post guides you through setting up an Obsidian vault with a GitHub repository to enable seamless documentation workflow for your team.</p>
+<h3 id="setting-up-your-github-repository">Setting Up Your GitHub Repository</h3>
+<ol>
+<li>
+<p><strong>Create a New GitHub Repository</strong>: Start by creating a new repository on GitHub. Include an `.md` (Markdown) file to serve as the starting point of your documentation.
+<img loading="lazy" src="/ObsidianGit/createRepo.png" alt=""  />
+</p>
+</li>
+<li>
+<p><strong>Generate a Personal Access Token</strong>: Follow GitHub&rsquo;s <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic">guide</a> to create a personal access token. This token will allow you to clone and push changes to your repository securely.
+<img loading="lazy" src="/ObsidianGit/PAT.png" alt=""  />
+</p>
+</li>
+<li>
+<p><strong>Install Git</strong>: Ensure Git is installed on your machine. This is necessary for cloning the repository and managing versions of your documentation.</p>
+</li>
+<li>
+<p><strong>Clone the Repository</strong>: Use your personal access token to clone the repository to your local machine. Replace <code>&lt;PERSONAL_ACCESS_TOKEN&gt;</code>, <code>&lt;USERNAME&gt;</code>, and <code>&lt;REPO&gt;</code> with your information:</p>
+<pre tabindex="0"><code>https://&lt;PERSONAL_ACCESS_TOKEN&gt;@github.com/&lt;USERNAME&gt;/&lt;REPO&gt;.git
+</code></pre></li>
+</ol>
+<h3 id="integrating-obsidian">Integrating Obsidian</h3>
+<ol start="5">
+<li>
+<p><strong>Install Obsidian</strong>: If you haven&rsquo;t already, you can download and install Obsidian from the <a href="https://obsidian.md">official website</a> or use Homebrew, a package manager for macOS, to install it. To install Obsidian using Homebrew, open your terminal and run the following command:</p>
+<pre tabindex="0"><code>brew install --cask obsidian
+</code></pre><p>After installation, open the cloned repository folder as your vault.</p>
+</li>
+<li>
+<p><strong>Install the Git Community Plugin</strong>: Inside Obsidian, navigate to the community plugins section and install the Git plugin. This plugin will enable you to commit and push changes directly from Obsidian.</p>
+</li>
+</ol>
+<h3 id="enhancing-your-workflow">Enhancing Your Workflow</h3>
+<p>To ensure a smooth workflow and keep your vault clean, consider the following enhancements:</p>
+<ul>
+<li>
+<p><strong>Exclude Unnecessary Files</strong>: Create a `.gitignore` file in your vault&rsquo;s root directory. Add configurations to exclude cache files, system-specific files, and Obsidian&rsquo;s settings that you don&rsquo;t want to track. For example:</p>
+<pre tabindex="0"><code># to exclude Obsidian&#39;s settings (including plugin and hotkey configurations)
+.obsidian/
+
+# Add below lines to exclude OS settings and caches
+.trash/
+.DS_Store
+</code></pre></li>
+<li>
+<p><strong>Automatic Backups</strong>: Enable automatic backups to periodically save your work without manual intervention. You can set up the plugin to commit changes at specified intervals, ensuring your documentation is always up-to-date.</p>
+</li>
+<li>
+<p><strong>Pull Changes on Startup</strong>: Enable the &ldquo;Pull updates on startup&rdquo; option in the Git plugin&rsquo;s settings to configure the plugin to pull changes from the remote repository each time you start Obsidian. This setting, found under the &ldquo;Backup&rdquo; section, ensures that your local vault is always synchronized with the latest changes made by your team.</p>
+</li>
+<li>
+<p><strong>Hotkeys for Common Git Actions</strong>: Assign hotkeys to frequent Git operations like commit, push, and pull. This streamlines your workflow by allowing you to quickly perform version control tasks without leaving Obsidian.</p>
+</li>
+</ul>
+<h4 id="source-control-and-history-views">Source Control and History Views</h4>
+<ul>
+<li>
+<p><strong>Using the Source Control View</strong>: Access the Source Control View by using the command palette (<code>Ctrl+P</code> or <code>Cmd+P</code>) and searching for &ldquo;Open Source Control View&rdquo;. This view lets you stage changes, commit them, and push to your remote repository, all from within Obsidian.</p>
+</li>
+<li>
+<p><strong>Using the History View</strong>: Access the History View by using the command palette (<code>Ctrl+P</code> or <code>Cmd+P</code>) and searching for &ldquo;Open History View&rdquo;. The History View displays a list of commits with their messages, authors, and timestamps. Clicking on a commit shows the changes made, offering insights into the documentation&rsquo;s evolution.</p>
+</li>
+</ul>
+<p>Configuring these features enhances your documentation process, making it more efficient and collaborative. It also helps in maintaining a detailed history of changes, which is invaluable for tracking progress and resolving any issues that may arise.</p>
+<h3 id="collaborative-documentation-best-practices">Collaborative Documentation Best Practices</h3>
+<ul>
+<li><strong>Commit Messages</strong>: Encourage clear and concise commit messages that accurately describe the changes made.</li>
+<li><strong>Documentation Structure</strong>: Organize your documentation in a way that&rsquo;s easy for all team members to navigate and contribute to.</li>
+<li><strong>Regular Pulls</strong>: To avoid conflicts, pull changes frequently, especially before starting a new editing session.</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>By integrating Obsidian with GitHub, teams can leverage the flexibility and power of markdown-based documentation with the version control and collaboration features of GitHub. This setup not only enhances the documentation process but also fosters a collaborative environment for team members to contribute their knowledge and expertise.</p>
+<p>For a deeper dive into the Git plugin&rsquo;s features and setup, especially for mobile users and advanced configurations, check out the <a href="https://publish.obsidian.md/git-doc">official documentation</a> or the <a href="https://github.com/denolehov/obsidian-git">Github page</a>.</p>
+<p>Remember, effective documentation is a continuous effort that requires the collaboration and contributions of all team members. Happy documenting!</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
